@@ -14,7 +14,13 @@ function App() {
   const dayliAnimesToday = useAnimeData(API_URL_TODAY);
   const API_URL_YESTERDAY = `https://api.jikan.moe/v4/schedules?filter=${yesterday}`;
   const dayliAnimesYesterday = useAnimeData(API_URL_YESTERDAY);
-  const dayliAnimes = [...dayliAnimesToday, ...dayliAnimesYesterday];
+  const dayliAnimes = [];
+  if (dayliAnimesToday) {
+    dayliAnimes.push(...dayliAnimesToday);
+  }
+  if (dayliAnimesYesterday) {
+    dayliAnimes.push(...dayliAnimesYesterday);
+  }
 
   return (
     <Router>
