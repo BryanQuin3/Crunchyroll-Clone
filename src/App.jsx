@@ -8,8 +8,8 @@ import { useAnimeData } from "./hooks/useAnimeData";
 import "./App.css";
 
 function App() {
-  const day = getDay();
-  const API_URL = `https://api.jikan.moe/v4/schedules?filter=${day}`;
+  const [today, yesterday] = getDay();
+  const API_URL = `https://api.jikan.moe/v4/schedules?filter=${today},${yesterday}`;
   const dayliAnimes = useAnimeData(API_URL);
   const API_URL_TOP = `https://api.jikan.moe/v4/top/anime`;
   const recommendedAnimes = useAnimeData(API_URL_TOP);

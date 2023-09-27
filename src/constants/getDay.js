@@ -12,6 +12,7 @@ export function getDay() {
     "other",
     "other",
   ];
-  const dayName = days[day - 1];
-  return dayName;
+  const yesterday = days[day - 2];
+  const today = days[day - 1];
+  return [today, yesterday];
 }
