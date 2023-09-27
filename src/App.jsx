@@ -26,7 +26,7 @@ function App() {
           element={
             <HomePage
               dayliAnimes={dayliAnimes}
-              recommendedAnimes={recommendedAnimes}
+              recommendedAnimes={recommendedAnimes.data}
             />
           }
         />
