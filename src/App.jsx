@@ -9,7 +9,7 @@ import "./App.css";
 
 function App() {
   const [today, yesterday] = getDay();
-  const API_URL = `https://api.jikan.moe/v4/schedules?filter=${today},${yesterday}`;
+  const API_URL = `https://api.jikan.moe/v4/schedules?filter=${today}&filter=${yesterday}`;
   const dayliAnimes = useAnimeData(API_URL);
   const API_URL_TOP = `https://api.jikan.moe/v4/top/anime`;
   const recommendedAnimes = useAnimeData(API_URL_TOP);
