@@ -10,7 +10,6 @@ export function useAnimeData(API_URL) {
         const animes = response.data;
         setAnimes(animes);
       });
-    console.log("haciendo fetch" + API_URL);
   }, [API_URL]);
 
   return animes;

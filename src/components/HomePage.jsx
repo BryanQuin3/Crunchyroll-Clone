@@ -2,6 +2,7 @@
 import { ListOfAnimes } from "./ListOfAnimes";
 import { Banner } from "./Banner";
 import { Carousel } from "./Carousel";
+import { SliderButtons } from "./SliderButtons";
 import { WatchingAnimeList } from "./WatchingAnimeList";
 import { useAnimeData } from "../hooks/useAnimeData";
 
@@ -12,6 +13,7 @@ export function HomePage({ dayliAnimes, recommendedAnimes }) {
     <>
       <Carousel />
       <main>
+        <SliderButtons />
         <ListOfAnimes
           animes={dayliAnimes}
           title={"Episodios Nuevos"}
@@ -19,8 +21,9 @@ export function HomePage({ dayliAnimes, recommendedAnimes }) {
           element={"day-container"}
         />
       </main>
-      <section>
-        <WatchingAnimeList watchingAnimes={watchingAnimes} />
+      <WatchingAnimeList watchingAnimes={watchingAnimes} />
+      <section className="recommendations-section">
+        <SliderButtons />
         <ListOfAnimes
           animes={recommendedAnimes}
           title={"Recomendado para ti"}

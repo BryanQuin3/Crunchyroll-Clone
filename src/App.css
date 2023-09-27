@@ -171,6 +171,7 @@ main {
   flex-direction: column;
   gap: 15px;
   margin-bottom: 20px;
+  position: relative;
 }
 
 .results-container {
@@ -188,7 +189,7 @@ main {
 
 .anime-container {
   display: flex;
-  width: 155px;
+  width: 203px;
   flex-direction: column;
   justify-content: center;
   transition: all 0.3s ease-in-out;
@@ -209,8 +210,8 @@ main {
 }
 
 .img-container {
-  width: 150px;
-  height: 220px;
+  width: 203px;
+  height: 304px;
   overflow: hidden;
   box-shadow: 0 0 1px rgba(0, 0, 0, 0.5);
   object-fit: contain;
@@ -442,7 +443,7 @@ main {
 .list-container {
   display: flex;
   align-items: center;
-  gap: 15px;
+  gap: 35px;
   width: 100%;
 }
 
@@ -549,9 +550,12 @@ main {
 .watching-episode {
   font-size: 14px;
   font-weight: 600;
+  white-space: nowrap;
+  word-wrap: break-word;
+  width: auto;
+  max-width: 25ch;
   overflow: hidden;
   text-overflow: ellipsis;
-  max-width: 100%;
 }
 
 @media (min-width: 769px) {
@@ -635,6 +639,7 @@ main {
   }
   .anime-list {
     width: 95%;
+    position: relative;
   }
   .card-img-container::after {
     content: "";
@@ -720,4 +725,46 @@ main {
 .cover-container.ripple {
   margin: 0;
   max-height: 90px;
+}
+
+.animeList-btns-container {
+  display: none;
+}
+
+@media (min-width: 769px) {
+  .recommendations-section {
+    position: relative;
+  }
+  .animeList-btns-container {
+    position: absolute;
+    top: 50%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 97%;
+    z-index: 4;
+  }
+  .list-container::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 150px;
+    height: 100%;
+    background: linear-gradient(to left, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0));
+  }
+
+  .animeList-btns {
+    background: transparent;
+    border: none;
+  }
+
+  .animeList-btns:hover {
+    cursor: pointer;
+  }
+
+  .animeList-btns > img {
+    width: 45px;
+    height: auto;
+  }
 }
