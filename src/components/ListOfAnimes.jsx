@@ -1,10 +1,11 @@
 /* eslint-disable react/prop-types */
 import { AnimeCard } from "./AnimeCard";
 
-const ListOfAnimes = ({ animes, title, container, element }) => {
+export const ListOfAnimes = ({ animes, title, container, element }) => {
   if (!animes) {
     return <div>Loading...</div>;
   }
+
   return (
     <section className={`anime-list ${container}`}>
       <h3 className="anime-list-title">{title}</h3>

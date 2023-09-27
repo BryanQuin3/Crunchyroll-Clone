@@ -1,6 +1,5 @@
 // En App.jsx
 import { getDay } from "./constants/getDay";
-import recommendedAnimesJSON from "./mocks/recommended.json";
 import { Header } from "./components/Header";
 import { SearchPage } from "./components/SearchPage";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
@@ -12,7 +11,8 @@ function App() {
   const day = getDay();
   const API_URL = `https://api.jikan.moe/v4/schedules?filter=${day}`;
   const dayliAnimes = useAnimeData(API_URL);
-  const recommendedAnimes = recommendedAnimesJSON.data;
+  const API_URL_TOP = `https://api.jikan.moe/v4/top/anime`;
+  const recommendedAnimes = useAnimeData(API_URL_TOP);
 
   return (
     <Router>

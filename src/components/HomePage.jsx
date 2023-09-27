@@ -1,21 +1,13 @@
 /* eslint-disable react/prop-types */
-import ListOfAnimes from "./ListOfAnimes";
+import { ListOfAnimes } from "./ListOfAnimes";
 import { Banner } from "./Banner";
-import Carousel from "./Carousel";
+import { Carousel } from "./Carousel";
 import { WatchingAnimeList } from "./WatchingAnimeList";
-import { useEffect, useState } from "react";
+import { useAnimeData } from "../hooks/useAnimeData";
 
 export function HomePage({ dayliAnimes, recommendedAnimes }) {
   const watchingListApi = `https://api.jikan.moe/v4/seasons/now?&limit=3`;
-  const [watchingAnimes, setWatchingAnimes] = useState([]);
-  useEffect(() => {
-    fetch(watchingListApi)
-      .then((response) => response.json())
-      .then((response) => {
-        const animes = response.data;
-        setWatchingAnimes(animes);
-      });
-  }, []);
+  const watchingAnimes = useAnimeData(watchingListApi);
   return (
     <>
       <Carousel />

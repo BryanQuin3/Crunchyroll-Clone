@@ -16,7 +16,7 @@ export const WatchingAnimeList = ({ watchingAnimes }) => {
           .then((response) => response.json())
           .then((response) => {
             const episodes = response.data;
-            const fetchedEpisodeTitle = episodes[0].title;
+            const fetchedEpisodeTitle = episodes[0]?.title;
             const timeLeft = getRandomNumber(1, 24);
             const fetchedTime = 24 - timeLeft;
             setEpisodeTitle(fetchedEpisodeTitle);
