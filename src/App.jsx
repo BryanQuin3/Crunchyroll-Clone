@@ -5,6 +5,7 @@ import { SearchPage } from "./components/SearchPage";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import HomePage from "./components/HomePage";
 import { useAnimeData } from "./hooks/useAnimeData";
+import { recommendedAnimes } from "./mocks/recommended.json";
 import "./App.css";
 
 function App() {
@@ -14,8 +15,6 @@ function App() {
   const API_URL_YESTERDAY = `https://api.jikan.moe/v4/schedules?filter=${yesterday}`;
   const dayliAnimesYesterday = useAnimeData(API_URL_YESTERDAY);
   const dayliAnimes = [...dayliAnimesToday, ...dayliAnimesYesterday];
-  const API_URL_TOP = `https://api.jikan.moe/v4/top/anime`;
-  const recommendedAnimes = useAnimeData(API_URL_TOP);
 
   return (
     <Router>
