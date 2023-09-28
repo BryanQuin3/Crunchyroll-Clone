@@ -1,7 +1,7 @@
 export const slides = [
   {
     imgSM: "./img/mushoku-sm.webp",
-    imgXL: "./img/musho-xl.png",
+    imgXL: "./img/musho-xl.webp",
     animeLogo: "./img/mushoku-logo.webp",
     animeDescription: `Cuando un autobús atropella a un joven de 34 años que no ha
     logrado mucho en su vida, su historia no termina ahí. Habiendo
