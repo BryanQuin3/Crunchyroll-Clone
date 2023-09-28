@@ -8,7 +8,6 @@ export const SearchPage = () => {
 
   const handleSearch = async (event) => {
     if (event.key === "Enter") {
-      // Verificar si se presionó la tecla Enter
       const animeNameCapitalized = capitalizeFirstLetter(searchQuery);
       const API_URL = `https://api.jikan.moe/v4/anime?q=${animeNameCapitalized}`;
       try {
