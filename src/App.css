@@ -741,8 +741,10 @@ main {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    width: 97%;
     z-index: 4;
+  }
+  .next-btn {
+    right: 0;
   }
   .list-container::after {
     content: "";
