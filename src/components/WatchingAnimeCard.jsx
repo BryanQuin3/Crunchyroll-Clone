@@ -20,7 +20,7 @@ export const WatchingAnimeCard = ({ id, anime, episode, timeLeft }) => {
         </figure>
       </div>
       <div className="watching-info">
-        <h5 className="watching-title">{titleOfAnime}</h5>
+        <small className="watching-title">{titleOfAnime}</small>
         <p className="watching-episode">{episode}</p>
         <p className="anime-genre">{gender}</p>
       </div>

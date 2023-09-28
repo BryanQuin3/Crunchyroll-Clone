@@ -178,7 +178,7 @@ main {
   display: grid;
   place-items: center;
   align-items: flex-start;
-  grid-template-columns: repeat(auto-fit, minmax(203px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
   background-color: #000;
   gap: 18px;
 }
@@ -195,6 +195,14 @@ main {
   transition: all 0.3s ease-in-out;
 }
 
+.results-container .anime-container,
+.results-container .anime-container > .img-container {
+  width: 160px;
+}
+
+.results-container .anime-container > .img-container {
+  height: 230px;
+}
 .anime-container:hover > .anime-title,
 .anime-container:hover .play-icon {
   /* color azul */
@@ -583,6 +591,8 @@ main {
 .watching-title,
 .watching-episode {
   margin: 0;
+  padding: 0;
+  font-weight: bold;
 }
 
 .anime-list-scroll-wrapper {
