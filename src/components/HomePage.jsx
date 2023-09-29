@@ -36,7 +36,7 @@ export function HomePage({ dayliAnimes, recommendedAnimes }) {
           id={"recommendations-btns"}
         />
       </section>
-      <Banner smallIMG={"./img/banner-sm.png"} bigIMG={"./img/banner.png"} />
+      <Banner smallIMG={"./img/banner-sm.webp"} bigIMG={"./img/banner.webp"} />
     </>
   );
 }

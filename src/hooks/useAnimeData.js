@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+
 export function useAnimeData(API_URL) {
   const [animes, setAnimes] = useState([]);
 
@@ -10,7 +11,7 @@ export function useAnimeData(API_URL) {
           const animes = response.data;
           setAnimes(animes);
         });
-    }, 1200);
+    }, 1500);
   }, [API_URL]);
 
   return animes;
