@@ -22,7 +22,7 @@ export const WatchingAnimeCard = ({ id, anime, episode, timeLeft }) => {
       </div>
       <div className="watching-info">
         <small className="watching-title">{titleOfAnime}</small>
-        {episode === undefined ? (
+        {episode ? (
           <Skeleton variant="text" width={200} height={30} />
         ) : (
           <p className="watching-episode">{episode}</p>
