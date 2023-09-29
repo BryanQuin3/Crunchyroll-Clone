@@ -2,6 +2,7 @@
 import { WatchingAnimeCard } from "./WatchingAnimeCard";
 import { useEffect, useState } from "react";
 import { getRandomNumber } from "../constants/getRandomNumber";
+import { Skeleton } from "@mui/material";
 export const WatchingAnimeList = ({ watchingAnimes }) => {
   const [episodeTitle, setEpisodeTitle] = useState("");
   const [time, setTime] = useState(0);
@@ -38,15 +39,19 @@ export const WatchingAnimeList = ({ watchingAnimes }) => {
         <img className="arrow right" src="./img/down-arrow.svg" alt="" />
       </div>
       <div className="anime-watching-container">
-        {watchingAnimes.map((anime, index) => (
-          <WatchingAnimeCard
-            key={index}
-            id={index}
-            anime={anime}
-            episode={episodesTitles[index] || episodeTitle}
-            timeLeft={times[index] || time}
-          />
-        ))}
+        {watchingAnimes != undefined ? (
+          watchingAnimes.map((anime, index) => (
+            <WatchingAnimeCard
+              key={index}
+              id={index}
+              anime={anime}
+              episode={episodesTitles[index] || episodeTitle}
+              timeLeft={times[index] || time}
+            />
+          ))
+        ) : (
+          <Skeleton variant="rectangular" width={361} height={90} />
+        )}
       </div>
     </section>
   );
