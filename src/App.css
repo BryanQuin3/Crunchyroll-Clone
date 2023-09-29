@@ -189,7 +189,7 @@ main {
 
 .anime-container {
   display: flex;
-  width: 203px;
+  width: 140px;
   flex-direction: column;
   justify-content: center;
   transition: all 0.3s ease-in-out;
@@ -218,13 +218,26 @@ main {
 }
 
 .img-container {
-  width: 203px;
-  height: 304px;
+  width: 140px;
+  height: 220px;
   overflow: hidden;
   box-shadow: 0 0 1px rgba(0, 0, 0, 0.5);
   object-fit: contain;
   margin: 0;
   position: relative;
+}
+
+@media (min-width: 769px) {
+  .list-container {
+    gap: 35;
+  }
+  .anime-container {
+    width: 203px;
+  }
+  .img-container {
+    width: 203px;
+    height: 304px;
+  }
 }
 
 .cover-img {
@@ -451,7 +464,7 @@ main {
 .list-container {
   display: flex;
   align-items: center;
-  gap: 35px;
+  gap: 15px;
   width: 100%;
 }
 

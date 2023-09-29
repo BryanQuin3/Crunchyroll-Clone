@@ -1,7 +1,7 @@
 /* eslint-disable react/prop-types */
 export const AnimeCard = ({ anime }) => {
   const titleOfAnime = anime.title;
-  const src = anime.images?.jpg?.large_image_url;
+  const src = anime.images?.webp?.image_url || anime.images?.jpg?.image_url;
   const gender = anime.genres[0]?.name || "Generic";
 
   return (
