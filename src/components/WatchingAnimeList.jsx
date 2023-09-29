@@ -27,7 +27,7 @@ export const WatchingAnimeList = ({ watchingAnimes }) => {
             ]);
             setTimes((times) => [...times, fetchedTime]);
           });
-      }, 5000);
+      }, 3000);
     });
   }, [watchingAnimes]);
 
