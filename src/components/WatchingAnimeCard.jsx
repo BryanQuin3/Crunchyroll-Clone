@@ -4,7 +4,8 @@ import { setWidth } from "../constants/setWidth";
 import { useEffect } from "react";
 export const WatchingAnimeCard = ({ id, anime, episode, timeLeft }) => {
   const titleOfAnime = anime.title;
-  const src = anime.images?.webp?.image_url || anime.images?.jpg?.image_url;
+  const src =
+    anime.images?.webp?.large_image_url || anime.images?.jpg?.large_image_url;
   const time = 24 - timeLeft;
   const duration = `${timeLeft} min`;
   const gender = anime.genres[0].name;
