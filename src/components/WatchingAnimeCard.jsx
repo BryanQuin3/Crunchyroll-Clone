@@ -23,7 +23,13 @@ export const WatchingAnimeCard = ({ id, anime, episode, timeLeft }) => {
       <div className="watching-info">
         <small className="watching-title">{titleOfAnime}</small>
         {episode ? (
-          <Skeleton variant="text" width={200} height={30} />
+          <Skeleton
+            variant="text"
+            width={145}
+            height={25}
+            animation="wave"
+            style={{ backgroundColor: "#f2f2f2" }}
+          />
         ) : (
           <p className="watching-episode">{episode}</p>
         )}
