@@ -1,4 +1,5 @@
 /* eslint-disable react/prop-types */
+import { Skeleton } from "@mui/material";
 import { setWidth } from "../constants/setWidth";
 import { useEffect } from "react";
 export const WatchingAnimeCard = ({ id, anime, episode, timeLeft }) => {
@@ -21,7 +22,11 @@ export const WatchingAnimeCard = ({ id, anime, episode, timeLeft }) => {
       </div>
       <div className="watching-info">
         <small className="watching-title">{titleOfAnime}</small>
-        <p className="watching-episode">{episode}</p>
+        {episode === undefined ? (
+          <Skeleton variant="text" width={200} height={30} />
+        ) : (
+          <p className="watching-episode">{episode}</p>
+        )}
         <p className="anime-genre">{gender}</p>
       </div>
     </article>
