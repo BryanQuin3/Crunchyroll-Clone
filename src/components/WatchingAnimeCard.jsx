@@ -23,15 +23,14 @@ export const WatchingAnimeCard = ({ id, anime, episode, timeLeft }) => {
       <div className="watching-info">
         <small className="watching-title">{titleOfAnime}</small>
         {episode ? (
+          <p className="watching-episode">{episode}</p>
+        ) : (
           <Skeleton
             variant="text"
             width={145}
-            height={25}
-            animation="wave"
-            style={{ backgroundColor: "#f2f2f2" }}
+            height={20}
+            style={{ backgroundColor: "#d0d0d0" }}
           />
-        ) : (
-          <p className="watching-episode">{episode}</p>
         )}
         <p className="anime-genre">{gender}</p>
       </div>
