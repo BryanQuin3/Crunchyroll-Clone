@@ -795,19 +795,17 @@ main {
 }
 
 .recommended-anime-section {
-  margin-left: 30px;
   width: 90%;
-  margin-bottom: 20px;
+  margin: 30px 0 20px 30px;
 }
 
 .recommended-anime-container {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 35px;
+  gap: 15px;
 }
 
 .recommended-img-container {
-  max-width: 95%;
   height: auto;
   margin: 0;
 }
@@ -842,6 +840,9 @@ main {
 .recommended-anime-synopsis {
   text-overflow: ellipsis;
   overflow: hidden;
+  margin-top: 10px;
+  font-size: 15px;
+  width: 95%;
 }
 
 .btns-crunchy-container {
@@ -850,6 +851,12 @@ main {
   align-items: center;
   gap: 15px;
   flex-wrap: wrap;
+  width: 100%;
+}
+
+.btns-crunchy-container > .btn-crunchy {
+  width: 95%;
+  align-self: auto;
 }
 
 .btn-favorite {
@@ -860,6 +867,7 @@ main {
   align-items: center;
   padding: 0 10px 0 0;
   gap: 0;
+  display: none;
 }
 
 .btn-favorite > .favorite {
@@ -870,4 +878,32 @@ main {
   background-color: inherit;
   color: #ff8839;
   border: 2px solid #ff8839;
+}
+
+.recommended-anime-details {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.watchlist-svg {
+  width: 25px;
+  height: auto;
+  fill: #fff;
+  cursor: pointer;
+}
+@media (min-width: 769px) {
+  .recommended-anime-container {
+    gap: 35px;
+  }
+  .btns-crunchy-container > .btn-crunchy {
+    width: auto;
+  }
+  .btn-favorite {
+    display: flex;
+  }
+  .watchlist-svg {
+    display: none;
+  }
 }

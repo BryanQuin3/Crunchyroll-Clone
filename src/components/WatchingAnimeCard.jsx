@@ -24,7 +24,9 @@ export const WatchingAnimeCard = ({ id, anime, episode, timeLeft }) => {
       <div className="watching-info">
         <small className="watching-title">{titleOfAnime}</small>
         {episode ? (
-          <p className="watching-episode">{episode}</p>
+          <p className="watching-episode">
+            {episode.slice(0, 18).concat("...")}
+          </p>
         ) : (
           <Skeleton
             variant="text"

@@ -1,6 +1,6 @@
 /* eslint-disable react/prop-types */
 import { ListOfAnimes } from "./ListOfAnimes";
-import { Banner } from "./Banner";
+// import { Banner } from "./Banner";
 import { Carousel } from "./Carousel";
 import { NextBtn } from "./NextBtn";
 import { PrevBtn } from "./PrevBtn";
@@ -39,7 +39,7 @@ export function HomePage({ dayliAnimes, recommendedAnimes }) {
           id={"recommendations-btns"}
         />
       </section>
-      <Banner smallIMG={"./img/banner-sm.webp"} bigIMG={"./img/banner.webp"} />
+      {/* <Banner smallIMG={"./img/banner-sm.webp"} bigIMG={"./img/banner.webp"} /> */}
       <section className="recommended-anime-section">
         <RecommendedAnimeCard />
       </section>
