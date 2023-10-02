@@ -41,7 +41,7 @@ nav {
 
 small {
   font-size: 15px;
-  padding-left: 20px;
+  padding: 0;
   color: var(--tertiaryColor);
 }
 
@@ -792,4 +792,82 @@ main {
     width: 45px;
     height: auto;
   }
+}
+
+.recommended-anime-section {
+  margin-left: 30px;
+  width: 90%;
+  margin-bottom: 20px;
+}
+
+.recommended-anime-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 35px;
+}
+
+.recommended-img-container {
+  max-width: 95%;
+  height: auto;
+  margin: 0;
+}
+
+.recommended-img-container:hover {
+  cursor: pointer;
+}
+
+.recommended-img-container > img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+.recommended-anime-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.recommended-anime-info > h3 {
+  font-size: 25px;
+  margin: 0;
+  padding: 0;
+}
+
+.anime-type {
+  color: #2abdbb;
+}
+
+.recommended-anime-synopsis {
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+
+.btns-crunchy-container {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+
+.btn-favorite {
+  background-color: #000;
+  border: 2px solid var(--oragenge);
+  color: var(--oragenge);
+  display: flex;
+  align-items: center;
+  padding: 0 10px 0 0;
+  gap: 0;
+}
+
+.btn-favorite > .favorite {
+  border: none;
+}
+
+.btn-favorite:hover {
+  background-color: inherit;
+  color: #ff8839;
+  border: 2px solid #ff8839;
 }
