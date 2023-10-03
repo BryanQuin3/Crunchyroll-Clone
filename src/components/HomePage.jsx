@@ -16,6 +16,7 @@ export function HomePage({ dayliAnimes, recommendedAnimes }) {
     const watchingAnimesList = await getAnime(watchingListApi);
     if (watchingAnimesList) {
       watchingAnimes.push(...watchingAnimesList);
+      console.log(watchingAnimesList);
     }
   }, 2000);
 
