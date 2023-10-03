@@ -906,4 +906,7 @@ main {
   .watchlist-svg {
     display: none;
   }
+  .recommended-anime-synopsis {
+    font-size: 16px;
+  }
 }

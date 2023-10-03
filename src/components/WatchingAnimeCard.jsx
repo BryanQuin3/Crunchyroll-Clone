@@ -29,9 +29,9 @@ export const WatchingAnimeCard = ({ id, anime, episode, timeLeft }) => {
           </p>
         ) : (
           <Skeleton
-            variant="text"
+            variant=""
             width={145}
-            height={20}
+            height={13}
             style={{ backgroundColor: "#d0d0d0" }}
           />
         )}

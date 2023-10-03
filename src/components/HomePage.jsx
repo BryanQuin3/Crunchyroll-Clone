@@ -1,16 +1,24 @@
 /* eslint-disable react/prop-types */
 import { ListOfAnimes } from "./ListOfAnimes";
-// import { Banner } from "./Banner";
+import { Banner } from "./Banner";
 import { Carousel } from "./Carousel";
 import { NextBtn } from "./NextBtn";
 import { PrevBtn } from "./PrevBtn";
 import { WatchingAnimeList } from "./WatchingAnimeList";
 import { RecommendedAnimeCard } from "./RecommendedAnimeCard";
-import { useAnimeData } from "../hooks/useAnimeData";
+import { animeFeed } from "../constants/animeFeed";
+import { getAnime } from "../services/getAnime";
 
 export function HomePage({ dayliAnimes, recommendedAnimes }) {
-  const watchingListApi = `https://api.jikan.moe/v4/seasons/now?&limit=3`;
-  const watchingAnimes = useAnimeData(watchingListApi);
+  const watchingAnimes = [];
+  setTimeout(async () => {
+    const watchingListApi = `https://api.jikan.moe/v4/seasons/now?&limit=3`;
+    const watchingAnimesList = await getAnime(watchingListApi);
+    if (watchingAnimesList) {
+      watchingAnimes.push(...watchingAnimesList);
+    }
+  }, 2000);
+
   // const specialAnimeApi = `https://api.jikan.moe/v4/anime?type=tv&order_by=title&limit=1`;
   // const specialAnime = useAnimeData(specialAnimeApi);
   return (
@@ -39,10 +47,13 @@ export function HomePage({ dayliAnimes, recommendedAnimes }) {
           id={"recommendations-btns"}
         />
       </section>
-      {/* <Banner smallIMG={"./img/banner-sm.webp"} bigIMG={"./img/banner.webp"} /> */}
       <section className="recommended-anime-section">
-        <RecommendedAnimeCard />
+        <RecommendedAnimeCard anime={animeFeed[0]} />
       </section>
+      <Banner
+        smallIMG={"./img/banner-jujutsu-sm.png"}
+        bigIMG={"./img/banner-jujutsu-xl.png"}
+      />
     </>
   );
 }
