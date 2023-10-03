@@ -11,21 +11,25 @@ import "./App.css";
 function App() {
   const [today, yesterday] = getDay();
   const dayliAnimes = [];
-  setTimeout(async () => {
+
+  const fetchDataToday = async () => {
     const API_URL_TODAY = `https://api.jikan.moe/v4/schedules?filter=${today}`;
     const dayliAnimesToday = await getAnime(API_URL_TODAY);
     if (dayliAnimesToday) {
       dayliAnimes.push(...dayliAnimesToday);
     }
-  }, 1000);
+  };
 
-  setTimeout(async () => {
+  const fetchDataYesterday = async () => {
     const API_URL_YESTERDAY = `https://api.jikan.moe/v4/schedules?filter=${yesterday}`;
     const dayliAnimesYesterday = await getAnime(API_URL_YESTERDAY);
     if (dayliAnimesYesterday) {
       dayliAnimes.push(...dayliAnimesYesterday);
     }
-  }, 2000);
+  };
+
+  setTimeout(fetchDataToday, 1000);
+  setTimeout(fetchDataYesterday, 3000);
 
   return (
     <Router>

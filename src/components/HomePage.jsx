@@ -7,21 +7,11 @@ import { PrevBtn } from "./PrevBtn";
 import { WatchingAnimeList } from "./WatchingAnimeList";
 import { RecommendedAnimeCard } from "./RecommendedAnimeCard";
 import { animeFeed } from "../constants/animeFeed";
-import { getAnime } from "../services/getAnime";
 
 export function HomePage({ dayliAnimes, recommendedAnimes }) {
-  const watchingAnimes = [];
-  setTimeout(async () => {
-    const watchingListApi = `https://api.jikan.moe/v4/seasons/now?&limit=3`;
-    const watchingAnimesList = await getAnime(watchingListApi);
-    if (watchingAnimesList) {
-      watchingAnimes.push(...watchingAnimesList);
-      console.log(watchingAnimesList);
-    }
-  }, 2000);
-
   // const specialAnimeApi = `https://api.jikan.moe/v4/anime?type=tv&order_by=title&limit=1`;
   // const specialAnime = useAnimeData(specialAnimeApi);
+
   return (
     <>
       <Carousel />
@@ -36,7 +26,7 @@ export function HomePage({ dayliAnimes, recommendedAnimes }) {
           id={"day-container-btns"}
         />
       </main>
-      <WatchingAnimeList watchingAnimes={watchingAnimes} />
+      <WatchingAnimeList />
       <section className="recommendations-section">
         <PrevBtn id={"recommendations-btns"} />
         <NextBtn id={"recommendations-btns"} />

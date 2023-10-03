@@ -2,10 +2,6 @@
 import { AnimeCard } from "./AnimeCard";
 
 export const ListOfAnimes = ({ animes, title, container, element, id }) => {
-  if (!animes) {
-    return <div>Loading...</div>;
-  }
-
   return (
     <section className={`anime-list ${container}`}>
       <h3 className="anime-list-title">{title}</h3>

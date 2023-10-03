@@ -2,34 +2,49 @@
 import { WatchingAnimeCard } from "./WatchingAnimeCard";
 import { useEffect, useState } from "react";
 import { getRandomNumber } from "../constants/getRandomNumber";
-export const WatchingAnimeList = ({ watchingAnimes }) => {
+import { getAnime } from "../services/getAnime";
+
+export const WatchingAnimeList = () => {
   const [episodeTitle, setEpisodeTitle] = useState("");
   const [time, setTime] = useState(0);
   const [episodesTitles, setEpisodesTitles] = useState([]);
   const [times, setTimes] = useState([]);
+  const [watchingAnimes, setWatchingAnimes] = useState([]);
 
   useEffect(() => {
-    watchingAnimes.forEach((anime) => {
-      const id = anime.mal_id;
-      setTimeout(() => {
-        fetch(`https://api.jikan.moe/v4/anime/${id}/episodes`)
-          .then((response) => response.json())
-          .then((response) => {
-            const episodes = response.data;
-            const fetchedEpisodeTitle = episodes[0]?.title;
-            const timeLeft = getRandomNumber(1, 24);
-            const fetchedTime = 24 - timeLeft;
-            setEpisodeTitle(fetchedEpisodeTitle);
-            setTime(fetchedTime);
-            setEpisodesTitles((episodesTitles) => [
-              ...episodesTitles,
-              fetchedEpisodeTitle,
-            ]);
-            setTimes((times) => [...times, fetchedTime]);
-          });
-      }, 4000);
-    });
-  }, [watchingAnimes]);
+    const fetchData = async () => {
+      let watchingAnimes = [];
+
+      const watchingListApi = `https://api.jikan.moe/v4/top/anime?filter=airing&limit=3`;
+      const watchingAnimesList = await getAnime(watchingListApi);
+
+      if (watchingAnimesList) {
+        watchingAnimes.push(...watchingAnimesList);
+        setWatchingAnimes(watchingAnimes);
+
+        for (const anime of watchingAnimesList) {
+          const id = anime.mal_id;
+          const response = await fetch(
+            `https://api.jikan.moe/v4/anime/${id}/episodes`
+          );
+          const episodes = await response.json();
+          const fetchedEpisodeTitle = episodes.data[0]?.title;
+          const timeLeft = getRandomNumber(1, 24);
+          const fetchedTime = 24 - timeLeft;
+
+          setEpisodeTitle(fetchedEpisodeTitle);
+          setTime(fetchedTime);
+          setEpisodesTitles((episodesTitles) => [
+            ...episodesTitles,
+            fetchedEpisodeTitle,
+          ]);
+          setTimes((times) => [...times, fetchedTime]);
+        }
+      }
+    };
+
+    fetchData();
+  }, []);
 
   return (
     <section className="anime-list continue-watching">
