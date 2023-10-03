@@ -6,30 +6,30 @@ import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import HomePage from "./components/HomePage";
 import recommendedAnimes from "./mocks/recommended.json";
 import { getAnime } from "./services/getAnime";
+import { useEffect, useState } from "react";
 import "./App.css";
 
 function App() {
   const [today, yesterday] = getDay();
-  const dayliAnimes = [];
+  const [dayliAnimes, setDayliAnimes] = useState([]);
 
-  const fetchDataToday = async () => {
-    const API_URL_TODAY = `https://api.jikan.moe/v4/schedules?filter=${today}`;
-    const dayliAnimesToday = await getAnime(API_URL_TODAY);
-    if (dayliAnimesToday) {
-      dayliAnimes.push(...dayliAnimesToday);
-    }
-  };
+  useEffect(() => {
+    const fetchData = async () => {
+      const API_URL_TODAY = `https://api.jikan.moe/v4/schedules?filter=${today}`;
+      const API_URL_YESTERDAY = `https://api.jikan.moe/v4/schedules?filter=${yesterday}`;
 
-  const fetchDataYesterday = async () => {
-    const API_URL_YESTERDAY = `https://api.jikan.moe/v4/schedules?filter=${yesterday}`;
-    const dayliAnimesYesterday = await getAnime(API_URL_YESTERDAY);
-    if (dayliAnimesYesterday) {
-      dayliAnimes.push(...dayliAnimesYesterday);
-    }
-  };
+      const [dayliAnimesToday, dayliAnimesYesterday] = await Promise.all([
+        getAnime(API_URL_TODAY),
+        getAnime(API_URL_YESTERDAY),
+      ]);
 
-  setTimeout(fetchDataToday, 1000);
-  setTimeout(fetchDataYesterday, 3000);
+      const combinedAnimes = [...dayliAnimesToday, ...dayliAnimesYesterday];
+
+      setDayliAnimes(combinedAnimes);
+    };
+
+    fetchData();
+  }, [today, yesterday]);
 
   return (
     <Router>
