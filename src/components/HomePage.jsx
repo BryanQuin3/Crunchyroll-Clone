@@ -39,9 +39,9 @@ export function HomePage({ dayliAnimes, recommendedAnimes }) {
           id={"recommendations-btns"}
         />
       </section>
-      <div className="recommended-anime-section">
+      <section className="recommended-anime-section">
         <RecommendedAnimeCard anime={animeFeed[0]} />
-      </div>
+      </section>
       <Banner
         smallIMG={"./img/banner-jujutsu-sm.png"}
         bigIMG={"./img/banner-jujutsu-xl.png"}
@@ -57,9 +57,9 @@ export function HomePage({ dayliAnimes, recommendedAnimes }) {
           id={"romance-btns"}
         />
       </section>
-      <div className="recommended-anime-section">
+      <section className="recommended-anime-section">
         <RecommendedAnimeCard anime={animeFeed[1]} />
-      </div>
+      </section>
     </>
   );
 }
