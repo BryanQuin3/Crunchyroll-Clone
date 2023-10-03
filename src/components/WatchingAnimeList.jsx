@@ -22,24 +22,26 @@ export const WatchingAnimeList = () => {
         watchingAnimes.push(...watchingAnimesList);
         setWatchingAnimes(watchingAnimes);
 
-        for (const anime of watchingAnimesList) {
-          const id = anime.mal_id;
-          const timeLeft = getRandomNumber(1, 24);
-          const fetchedTime = 24 - timeLeft;
-          setTime(fetchedTime);
-          const response = await fetch(
-            `https://api.jikan.moe/v4/anime/${id}/episodes`
-          );
-          const episodes = await response.json();
-          const fetchedEpisodeTitle = episodes.data[0]?.title;
+        setTimeout(async () => {
+          for (const anime of watchingAnimesList) {
+            const id = anime.mal_id;
+            const timeLeft = getRandomNumber(1, 24);
+            const fetchedTime = 24 - timeLeft;
+            setTime(fetchedTime);
+            const response = await fetch(
+              `https://api.jikan.moe/v4/anime/${id}/episodes`
+            );
+            const episodes = await response.json();
+            const fetchedEpisodeTitle = episodes.data[0]?.title;
 
-          setEpisodeTitle(fetchedEpisodeTitle);
-          setEpisodesTitles((episodesTitles) => [
-            ...episodesTitles,
-            fetchedEpisodeTitle,
-          ]);
-          setTimes((times) => [...times, fetchedTime]);
-        }
+            setEpisodeTitle(fetchedEpisodeTitle);
+            setEpisodesTitles((episodesTitles) => [
+              ...episodesTitles,
+              fetchedEpisodeTitle,
+            ]);
+            setTimes((times) => [...times, fetchedTime]);
+          }
+        }, 2000);
       }
     };
 
