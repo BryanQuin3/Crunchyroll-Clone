@@ -24,16 +24,16 @@ export const WatchingAnimeList = () => {
 
         for (const anime of watchingAnimesList) {
           const id = anime.mal_id;
+          const timeLeft = getRandomNumber(1, 24);
+          const fetchedTime = 24 - timeLeft;
+          setTime(fetchedTime);
           const response = await fetch(
             `https://api.jikan.moe/v4/anime/${id}/episodes`
           );
           const episodes = await response.json();
           const fetchedEpisodeTitle = episodes.data[0]?.title;
-          const timeLeft = getRandomNumber(1, 24);
-          const fetchedTime = 24 - timeLeft;
 
           setEpisodeTitle(fetchedEpisodeTitle);
-          setTime(fetchedTime);
           setEpisodesTitles((episodesTitles) => [
             ...episodesTitles,
             fetchedEpisodeTitle,
