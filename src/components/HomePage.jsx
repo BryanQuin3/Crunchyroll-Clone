@@ -7,6 +7,7 @@ import { PrevBtn } from "./PrevBtn";
 import { WatchingAnimeList } from "./WatchingAnimeList";
 import { RecommendedAnimeCard } from "./RecommendedAnimeCard";
 import { animeFeed } from "../constants/animeFeed";
+import romanceAnimeList from "../mocks/romanceAnimes.json";
 
 export function HomePage({ dayliAnimes, recommendedAnimes }) {
   // const specialAnimeApi = `https://api.jikan.moe/v4/anime?type=tv&order_by=title&limit=1`;
@@ -38,13 +39,27 @@ export function HomePage({ dayliAnimes, recommendedAnimes }) {
           id={"recommendations-btns"}
         />
       </section>
-      <section className="recommended-anime-section">
+      <div className="recommended-anime-section">
         <RecommendedAnimeCard anime={animeFeed[0]} />
-      </section>
+      </div>
       <Banner
         smallIMG={"./img/banner-jujutsu-sm.png"}
         bigIMG={"./img/banner-jujutsu-xl.png"}
       />
+      <section className="recommendations-section">
+        <PrevBtn id={"recommendations-btns"} />
+        <NextBtn id={"recommendations-btns"} />
+        <ListOfAnimes
+          animes={romanceAnimeList.data}
+          title={"Estudios y romances"}
+          container={""}
+          element={"romance"}
+          id={"romance-btns"}
+        />
+      </section>
+      <div className="recommended-anime-section">
+        <RecommendedAnimeCard anime={animeFeed[1]} />
+      </div>
     </>
   );
 }
