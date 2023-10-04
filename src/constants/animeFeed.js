@@ -17,4 +17,13 @@ export const animeFeed = [
     genre: "Aventura",
     button: "Ver ahora",
   },
+  {
+    title: "BOCCHI THE ROCK!",
+    imageSrc: "./img/bocchi.jpe",
+    synopsis:
+      "Bocchi Hitori es una chica que sufre de una extrema ansiedad social, ¡y no es buena para hablar con la gente! Después de que su amiga de la infancia la dejara sola, Bocchi se promete hacerse amiga de sus compañeros de clase para que no tenga que pasar sola los próximos dos años de escuela secundaria. Pero eso resulta ser más fácil decirlo que hacerlo ... ¿Podrá Bocchi hacer amigos, o será que su ansiedad social la derrotará?",
+    type: "Serie",
+    genre: "Comedia",
+    button: "Ver ahora",
+  },
 ];

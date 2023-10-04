@@ -23,7 +23,10 @@ function App() {
         getAnime(API_URL_YESTERDAY),
       ]);
 
-      const combinedAnimes = [...dayliAnimesToday, ...dayliAnimesYesterday];
+      const combinedAnimes = [
+        ...dayliAnimesToday.data,
+        ...dayliAnimesYesterday.data,
+      ];
 
       setDayliAnimes(combinedAnimes);
     };

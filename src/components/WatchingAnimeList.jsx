@@ -16,8 +16,8 @@ export const WatchingAnimeList = () => {
       let watchingAnimes = [];
 
       const watchingListApi = `https://api.jikan.moe/v4/top/anime?filter=airing&limit=3`;
-      const watchingAnimesList = await getAnime(watchingListApi);
-
+      const response = await getAnime(watchingListApi);
+      const watchingAnimesList = response.data;
       if (watchingAnimesList) {
         watchingAnimes.push(...watchingAnimesList);
         setWatchingAnimes(watchingAnimes);

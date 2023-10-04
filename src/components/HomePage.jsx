@@ -7,12 +7,26 @@ import { PrevBtn } from "./PrevBtn";
 import { WatchingAnimeList } from "./WatchingAnimeList";
 import { RecommendedAnimeCard } from "./RecommendedAnimeCard";
 import { animeFeed } from "../constants/animeFeed";
-import romanceAnimeList from "../mocks/romanceAnimes.json";
+import { useEffect, useState } from "react";
+import { getAnime } from "../services/getAnime";
 
 export function HomePage({ dayliAnimes, recommendedAnimes }) {
-  // const specialAnimeApi = `https://api.jikan.moe/v4/anime?type=tv&order_by=title&limit=1`;
-  // const specialAnime = useAnimeData(specialAnimeApi);
+  const [romances, setRomances] = useState([]);
+  const [sports, setSports] = useState([]);
+  useEffect(() => {
+    const fetchData = async () => {
+      const API_URL_ROMANCE = `https://anime-api-two.vercel.app/romance`;
+      const API_URL_SPORTS = `https://anime-api-two.vercel.app/sport`;
+      const [romance, sports] = await Promise.all([
+        getAnime(API_URL_ROMANCE),
+        getAnime(API_URL_SPORTS),
+      ]);
+      setRomances(romance);
+      setSports(sports);
+    };
 
+    fetchData();
+  }, [romances, sports]);
   return (
     <>
       <Carousel />
@@ -47,10 +61,10 @@ export function HomePage({ dayliAnimes, recommendedAnimes }) {
         bigIMG={"./img/banner-jujutsu-xl.png"}
       />
       <section className="recommendations-section">
-        <PrevBtn id={"recommendations-btns"} />
-        <NextBtn id={"recommendations-btns"} />
+        <PrevBtn id={"romance-btns"} />
+        <NextBtn id={"romance-btns"} />
         <ListOfAnimes
-          animes={romanceAnimeList.data}
+          animes={romances}
           title={"Estudios y romances"}
           container={""}
           element={"romance"}
@@ -59,6 +73,24 @@ export function HomePage({ dayliAnimes, recommendedAnimes }) {
       </section>
       <section className="recommended-anime-section">
         <RecommendedAnimeCard anime={animeFeed[1]} />
+      </section>
+      <Banner
+        smallIMG={"./img/banner-csm-sm.webp"}
+        bigIMG={"./img/banner-csm.webp"}
+      />
+      <section className="recommendations-section">
+        <PrevBtn id={"sports-btns"} />
+        <NextBtn id={"sports-btns"} />
+        <ListOfAnimes
+          animes={sports}
+          title={"¡ES LA HORA DEL DEPORTE!"}
+          container={""}
+          element={"recommendations"}
+          id={"sports-btns"}
+        />
+      </section>
+      <section className="recommended-anime-section">
+        <RecommendedAnimeCard anime={animeFeed[2]} />
       </section>
     </>
   );

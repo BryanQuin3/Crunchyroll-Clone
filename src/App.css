@@ -288,6 +288,11 @@ main {
   z-index: 3;
   padding-top: 15px;
   background-color: var(--secondaryColor);
+  overflow: hidden;
+}
+
+.menu-phone > small {
+  padding-left: 20px;
 }
 
 .link-arrow-container {
@@ -433,6 +438,11 @@ main {
   padding: 15px 0;
 }
 
+.carousel-btns > .watchlist-svg {
+  fill: var(--oragenge);
+  padding: 7px;
+}
+
 .card-play {
   width: 20px;
   height: auto;
@@ -441,7 +451,7 @@ main {
 .favorite {
   width: 30px;
   height: auto;
-  padding: 4px;
+  fill: var(--oragenge);
   border: 2px solid var(--oragenge);
   transition: all 0.3s ease-in-out;
 }
@@ -903,7 +913,7 @@ main {
   .btn-favorite {
     display: flex;
   }
-  .watchlist-svg {
+  .recommended-anime-details > .watchlist-svg {
     display: none;
   }
   .recommended-anime-synopsis {
