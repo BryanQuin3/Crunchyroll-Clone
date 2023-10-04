@@ -5,6 +5,12 @@ import { useState } from "react";
 export const Header = ({ menuState, setMenuState }) => {
   const [transitionName, setTransitionName] = useState("");
   const handleClick = (e) => {
+    if (!document.startViewTransition) {
+      setMenuState((preview) =>
+        preview === "no-active" ? "active" : "no-active"
+      );
+      return;
+    }
     document.startViewTransition(() => {
       flushSync(() => {
         setTransitionName(e.target.style.startViewTransitionName);
