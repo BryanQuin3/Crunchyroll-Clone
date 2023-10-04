@@ -12,7 +12,7 @@ import "./App.css";
 function App() {
   const [today, yesterday] = getDay();
   const [dayliAnimes, setDayliAnimes] = useState([]);
-
+  const [menuState, setMenuState] = useState("no-active");
   useEffect(() => {
     const fetchData = async () => {
       const API_URL_TODAY = `https://api.jikan.moe/v4/schedules?filter=${today}`;
@@ -36,19 +36,21 @@ function App() {
 
   return (
     <Router>
-      <Header />
-      <Routes>
-        <Route path="/search" element={<SearchPage />} />
-        <Route
-          path="/"
-          element={
-            <HomePage
-              dayliAnimes={dayliAnimes}
-              recommendedAnimes={recommendedAnimes.data}
-            />
-          }
-        />
-      </Routes>
+      <Header menuState={menuState} setMenuState={setMenuState} />
+      {menuState === "no-active" && (
+        <Routes>
+          <Route path="/search" element={<SearchPage />} />
+          <Route
+            path="/"
+            element={
+              <HomePage
+                dayliAnimes={dayliAnimes}
+                recommendedAnimes={recommendedAnimes.data}
+              />
+            }
+          />
+        </Routes>
+      )}
     </Router>
   );
 }
