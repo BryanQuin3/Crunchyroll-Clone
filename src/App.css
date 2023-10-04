@@ -289,6 +289,11 @@ main {
   padding-top: 15px;
   background-color: var(--secondaryColor);
   overflow: hidden;
+  transition: opacity 0.3s ease;
+}
+
+.menu-phone.active {
+  opacity: 1;
 }
 
 .menu-phone > small {
