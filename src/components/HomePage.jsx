@@ -24,7 +24,7 @@ export function HomePage({ dayliAnimes, recommendedAnimes }) {
     };
 
     fetchData();
-  }, [romances, sports]);
+  }, []);
   return (
     <>
       <Carousel />
