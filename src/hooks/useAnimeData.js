@@ -37,8 +37,9 @@ export function useAnimeData() {
       setRomances(romance);
       setSports(sports);
     };
-
-    fetchDailyAnimes();
+    setTimeout(() => {
+      fetchDailyAnimes();
+    }, 1500);
     setTimeout(() => {
       fetchGenreData();
     }, 1500);
