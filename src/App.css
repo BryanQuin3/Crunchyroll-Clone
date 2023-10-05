@@ -569,12 +569,10 @@ main {
   color: var(--tertiaryColor);
   font-size: 11px;
   text-transform: uppercase;
-  white-space: nowrap;
-  word-wrap: break-word;
-  width: auto;
-  max-width: 25ch;
   overflow: hidden;
-  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
 }
 
 @media (min-width: 575px) {
@@ -586,12 +584,10 @@ main {
 .watching-episode {
   font-size: 14px;
   font-weight: 600;
-  white-space: nowrap;
-  word-wrap: break-word;
-  width: auto;
-  max-width: 25ch;
   overflow: hidden;
-  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
 }
 
 @media (min-width: 769px) {
@@ -855,6 +851,9 @@ main {
 .recommended-anime-synopsis {
   text-overflow: ellipsis;
   overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
   margin-top: 10px;
   font-size: 15px;
   width: 95%;
