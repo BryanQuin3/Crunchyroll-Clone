@@ -5,27 +5,11 @@ import { AnimeListSection } from "./AnimeListSection";
 import { WatchingAnimeList } from "./WatchingAnimeList";
 import { RecommendedAnimeCard } from "./RecommendedAnimeCard";
 import { animeFeed } from "../constants/animeFeed";
-import { useEffect, useState } from "react";
-import { getAnime } from "../services/getAnime";
+import { useAnimeData } from "../hooks/useAnimeData";
+import recommendedAnimes from "../mocks/recommended.json";
 
-export function HomePage({ dayliAnimes, recommendedAnimes }) {
-  const [romances, setRomances] = useState([]);
-  const [sports, setSports] = useState([]);
-  useEffect(() => {
-    const fetchData = async () => {
-      const API_URL_ROMANCE = `https://anime-api-two.vercel.app/romance`;
-      const API_URL_SPORTS = `https://anime-api-two.vercel.app/sport`;
-      const [romance, sports] = await Promise.all([
-        getAnime(API_URL_ROMANCE),
-        getAnime(API_URL_SPORTS),
-      ]);
-      setRomances(romance);
-      setSports(sports);
-    };
-
-    fetchData();
-  }, []);
-
+export function HomePage() {
+  const { dayliAnimes, romances, sports } = useAnimeData();
   return (
     <>
       <Carousel />
@@ -40,7 +24,7 @@ export function HomePage({ dayliAnimes, recommendedAnimes }) {
       </main>
       <WatchingAnimeList />
       <AnimeListSection
-        animes={recommendedAnimes}
+        animes={recommendedAnimes.data}
         title={"Recomendado para ti"}
         container={""}
         element={"recommendations"}

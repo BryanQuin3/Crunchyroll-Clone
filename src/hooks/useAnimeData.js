@@ -1,17 +1,48 @@
 import { useState, useEffect } from "react";
-export function useAnimeData(API_URL) {
-  const [animes, setAnimes] = useState([]);
+import { getAnime } from "../services/getAnime";
+import { getDay } from "../constants/getDay";
+
+export function useAnimeData() {
+  const [today, yesterday] = getDay();
+  const [dayliAnimes, setDayliAnimes] = useState([]);
+  const [romances, setRomances] = useState([]);
+  const [sports, setSports] = useState([]);
 
   useEffect(() => {
-    setTimeout(() => {
-      fetch(API_URL)
-        .then((response) => response.json())
-        .then((response) => {
-          const animes = response.data;
-          setAnimes(animes);
-        });
-    }, 1500);
-  }, [API_URL]);
+    const fetchDailyAnimes = async () => {
+      const API_URL_TODAY = `https://api.jikan.moe/v4/schedules?filter=${today}`;
+      const API_URL_YESTERDAY = `https://api.jikan.moe/v4/schedules?filter=${yesterday}`;
 
-  return animes;
+      const [dayliAnimesToday, dayliAnimesYesterday] = await Promise.all([
+        getAnime(API_URL_TODAY),
+        getAnime(API_URL_YESTERDAY),
+      ]);
+
+      const combinedAnimes = [
+        ...dayliAnimesToday.data,
+        ...dayliAnimesYesterday.data,
+      ];
+
+      setDayliAnimes(combinedAnimes);
+    };
+
+    const fetchGenreData = async () => {
+      const API_URL_ROMANCE = `https://anime-api-two.vercel.app/romance`;
+      const API_URL_SPORTS = `https://anime-api-two.vercel.app/sport`;
+      const [romance, sports] = await Promise.all([
+        getAnime(API_URL_ROMANCE),
+        getAnime(API_URL_SPORTS),
+      ]);
+
+      setRomances(romance);
+      setSports(sports);
+    };
+
+    fetchDailyAnimes();
+    setTimeout(() => {
+      fetchGenreData();
+    }, 1500);
+  }, [today, yesterday]);
+
+  return { dayliAnimes, romances, sports };
 }
