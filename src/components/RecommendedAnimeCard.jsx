@@ -4,7 +4,7 @@ export const RecommendedAnimeCard = ({ anime }) => {
   return (
     <article className="recommended-anime-container">
       <figure className="recommended-img-container ripple">
-        <img src={imageSrc} alt="" />
+        <img loading="lazy" src={imageSrc} alt="" />
       </figure>
       <div className="recommended-anime-info">
         <h3>{title}</h3>

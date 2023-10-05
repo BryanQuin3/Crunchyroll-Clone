@@ -5,10 +5,8 @@ import { AnimeListSection } from "./AnimeListSection";
 import { WatchingAnimeList } from "./WatchingAnimeList";
 import { RecommendedAnimeCard } from "./RecommendedAnimeCard";
 import { animeFeed } from "../constants/animeFeed";
-import React, { useEffect, useState, Suspense } from "react";
+import { useEffect, useState } from "react";
 import { getAnime } from "../services/getAnime";
-
-const LazyAnimeList = React.lazy(() => import("./AnimeListSection"));
 
 export function HomePage({ dayliAnimes, recommendedAnimes }) {
   const [romances, setRomances] = useState([]);
@@ -27,27 +25,7 @@ export function HomePage({ dayliAnimes, recommendedAnimes }) {
 
     fetchData();
   }, []);
-  const recommendedAnimesProps = {
-    animes: recommendedAnimes,
-    title: "Recomendado para ti",
-    container: "",
-    element: "recommendations",
-    id: "recommendations-btns",
-  };
-  const romancesProps = {
-    animes: romances,
-    title: "Estudios y romances",
-    container: "",
-    element: "romance",
-    id: "romance-btns",
-  };
-  const sportsProps = {
-    animes: sports,
-    title: "¡ES LA HORA DEL DEPORTE!",
-    container: "",
-    element: "recommendations",
-    id: "sports-btns",
-  };
+
   return (
     <>
       <Carousel />
@@ -61,16 +39,13 @@ export function HomePage({ dayliAnimes, recommendedAnimes }) {
         />
       </main>
       <WatchingAnimeList />
-      <Suspense fallback={<div>Loading...</div>}>
-        <LazyAnimeList {...recommendedAnimesProps} />
-      </Suspense>
-      {/* <AnimeListSection
+      <AnimeListSection
         animes={recommendedAnimes}
         title={"Recomendado para ti"}
         container={""}
         element={"recommendations"}
         id={"recommendations-btns"}
-      /> */}
+      />
       <section className="recommended-anime-section">
         <RecommendedAnimeCard anime={animeFeed[0]} />
       </section>
@@ -78,16 +53,13 @@ export function HomePage({ dayliAnimes, recommendedAnimes }) {
         smallIMG={"./img/banner-jujutsu-sm.png"}
         bigIMG={"./img/banner-jujutsu-xl.png"}
       />
-      <Suspense fallback={<div>Loading...</div>}>
-        <LazyAnimeList {...romancesProps} />
-      </Suspense>
-      {/* <AnimeListSection
+      <AnimeListSection
         animes={romances}
         title={"Estudios y romances"}
         container={""}
         element={"romance"}
         id={"romance-btns"}
-      /> */}
+      />
       <section className="recommended-anime-section">
         <RecommendedAnimeCard anime={animeFeed[1]} />
       </section>
@@ -95,16 +67,13 @@ export function HomePage({ dayliAnimes, recommendedAnimes }) {
         smallIMG={"./img/banner-csm-sm.webp"}
         bigIMG={"./img/banner-csm.webp"}
       />
-      <Suspense fallback={<div>Loading...</div>}>
-        <LazyAnimeList {...sportsProps} />
-      </Suspense>
-      {/* <AnimeListSection
+      <AnimeListSection
         animes={sports}
         title={"¡ES LA HORA DEL DEPORTE!"}
         container={""}
         element={"recommendations"}
         id={"sports-btns"}
-      /> */}
+      />
       <section className="recommended-anime-section">
         <RecommendedAnimeCard anime={animeFeed[2]} />
       </section>
