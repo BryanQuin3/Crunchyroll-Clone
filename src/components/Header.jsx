@@ -1,18 +1,10 @@
 /* eslint-disable react/prop-types */
-import { flushSync } from "react-dom";
 import { Link } from "react-router-dom";
-import { useState } from "react";
 export const Header = ({ menuState, setMenuState }) => {
-  const [transitionName, setTransitionName] = useState("");
-  const handleClick = (e) => {
-    document.startViewTransition(() => {
-      flushSync(() => {
-        setTransitionName(e.target.style.startViewTransitionName);
-        setMenuState((preview) =>
-          preview === "no-active" ? "active" : "no-active"
-        );
-      });
-    });
+  const handleClick = () => {
+    setMenuState((preview) =>
+      preview === "no-active" ? "active" : "no-active"
+    );
   };
   return (
     <header>
@@ -35,10 +27,7 @@ export const Header = ({ menuState, setMenuState }) => {
             <path d="M21 4a1 1 0 0 1 0 2H3a1 1 0 0 1 0-2h18zm0 7a1 1 0 0 1 0 2H3a1 1 0 0 1 0-2h18zm0 7a1 1 0 0 1 0 2H3a1 1 0 0 1 0-2h18z"></path>
           </svg>
           {menuState === "active" && (
-            <div
-              className="menu-phone"
-              style={{ startViewTransitionName: transitionName }}
-            >
+            <div className="menu-phone">
               <small>Explorar</small>
               <ul className="main-list">
                 <li>
