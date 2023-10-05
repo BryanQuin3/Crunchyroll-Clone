@@ -36,13 +36,15 @@ export const Header = ({ menuState, setMenuState }) => {
             aria-hidden="true"
             role="img"
             onClick={handleClick}
-            style={{ startViewTransitionName: transitionName }}
           >
             <title id="menu-svg">Menú</title>
             <path d="M21 4a1 1 0 0 1 0 2H3a1 1 0 0 1 0-2h18zm0 7a1 1 0 0 1 0 2H3a1 1 0 0 1 0-2h18zm0 7a1 1 0 0 1 0 2H3a1 1 0 0 1 0-2h18z"></path>
           </svg>
           {menuState === "active" && (
-            <div className="menu-phone">
+            <div
+              className="menu-phone"
+              style={{ startViewTransitionName: transitionName }}
+            >
               <small>Explorar</small>
               <ul className="main-list">
                 <li>
