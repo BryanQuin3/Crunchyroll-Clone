@@ -291,6 +291,11 @@ main {
   overflow: hidden;
 }
 
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation-duration: 0.5s;
+}
+
 .menu-phone > small {
   padding-left: 20px;
 }
