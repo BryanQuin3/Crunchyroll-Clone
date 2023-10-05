@@ -27,12 +27,26 @@ export function HomePage({ dayliAnimes, recommendedAnimes }) {
 
     fetchData();
   }, []);
+  const recommendedAnimesProps = {
+    animes: recommendedAnimes,
+    title: "Recomendado para ti",
+    container: "",
+    element: "recommendations",
+    id: "recommendations-btns",
+  };
   const romancesProps = {
     animes: romances,
     title: "Estudios y romances",
     container: "",
     element: "romance",
     id: "romance-btns",
+  };
+  const sportsProps = {
+    animes: sports,
+    title: "¡ES LA HORA DEL DEPORTE!",
+    container: "",
+    element: "recommendations",
+    id: "sports-btns",
   };
   return (
     <>
@@ -47,13 +61,16 @@ export function HomePage({ dayliAnimes, recommendedAnimes }) {
         />
       </main>
       <WatchingAnimeList />
-      <AnimeListSection
+      <Suspense fallback={<div>Loading...</div>}>
+        <LazyAnimeList {...recommendedAnimesProps} />
+      </Suspense>
+      {/* <AnimeListSection
         animes={recommendedAnimes}
         title={"Recomendado para ti"}
         container={""}
         element={"recommendations"}
         id={"recommendations-btns"}
-      />
+      /> */}
       <section className="recommended-anime-section">
         <RecommendedAnimeCard anime={animeFeed[0]} />
       </section>
@@ -78,13 +95,16 @@ export function HomePage({ dayliAnimes, recommendedAnimes }) {
         smallIMG={"./img/banner-csm-sm.webp"}
         bigIMG={"./img/banner-csm.webp"}
       />
-      <AnimeListSection
+      <Suspense fallback={<div>Loading...</div>}>
+        <LazyAnimeList {...sportsProps} />
+      </Suspense>
+      {/* <AnimeListSection
         animes={sports}
         title={"¡ES LA HORA DEL DEPORTE!"}
         container={""}
         element={"recommendations"}
         id={"sports-btns"}
-      />
+      /> */}
       <section className="recommended-anime-section">
         <RecommendedAnimeCard anime={animeFeed[2]} />
       </section>
