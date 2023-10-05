@@ -5,8 +5,10 @@ import { AnimeListSection } from "./AnimeListSection";
 import { WatchingAnimeList } from "./WatchingAnimeList";
 import { RecommendedAnimeCard } from "./RecommendedAnimeCard";
 import { animeFeed } from "../constants/animeFeed";
-import { useEffect, useState } from "react";
+import React, { useEffect, useState, Suspense } from "react";
 import { getAnime } from "../services/getAnime";
+
+const LazyAnimeList = React.lazy(() => import("./AnimeListSection"));
 
 export function HomePage({ dayliAnimes, recommendedAnimes }) {
   const [romances, setRomances] = useState([]);
@@ -25,6 +27,13 @@ export function HomePage({ dayliAnimes, recommendedAnimes }) {
 
     fetchData();
   }, []);
+  const romancesProps = {
+    animes: romances,
+    title: "Estudios y romances",
+    container: "",
+    element: "romance",
+    id: "romance-btns",
+  };
   return (
     <>
       <Carousel />
@@ -52,13 +61,16 @@ export function HomePage({ dayliAnimes, recommendedAnimes }) {
         smallIMG={"./img/banner-jujutsu-sm.png"}
         bigIMG={"./img/banner-jujutsu-xl.png"}
       />
-      <AnimeListSection
+      <Suspense fallback={<div>Loading...</div>}>
+        <LazyAnimeList {...romancesProps} />
+      </Suspense>
+      {/* <AnimeListSection
         animes={romances}
         title={"Estudios y romances"}
         container={""}
         element={"romance"}
         id={"romance-btns"}
-      />
+      /> */}
       <section className="recommended-anime-section">
         <RecommendedAnimeCard anime={animeFeed[1]} />
       </section>
