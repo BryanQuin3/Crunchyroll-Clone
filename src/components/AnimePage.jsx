@@ -4,12 +4,12 @@ export const AnimePage = () => {
     <div className="anime-page-container">
       <div className="current-anime-cover">
         <div className="blurred-cover">
-          <img src="./img/mushoku-portada.jpe" alt="portada de vinland" />
+          <img src="../img/mushoku-portada.jpe" alt="portada de ..." />
         </div>
         <img
           className="anime-cover-min"
-          src="./img/mushoku-portada.jpe"
-          alt="portada de vinland"
+          src="../img/mushoku-portada.jpe"
+          alt="portada de ..."
         />
       </div>
       <section className="anime-page-body">
