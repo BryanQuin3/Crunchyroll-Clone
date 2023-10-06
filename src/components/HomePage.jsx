@@ -34,8 +34,8 @@ export function HomePage() {
         <RecommendedAnimeCard anime={animeFeed[0]} />
       </section>
       <Banner
-        smallIMG={"./img/banner-jujutsu-sm.png"}
-        bigIMG={"./img/banner-jujutsu-xl.png"}
+        smallIMG={"./img/banner-jujutsu-sm.webp"}
+        bigIMG={"./img/banner-jujutsu-xl.webp"}
       />
       <AnimeListSection
         animes={romances}
