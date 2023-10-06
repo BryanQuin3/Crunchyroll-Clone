@@ -11,7 +11,12 @@ export const AnimeCard = ({ anime }) => {
         <a href={anime.trailer?.url} target="_blank" rel="noreferrer">
           <img src="./img/play.png" alt="" className="play-icon" />
         </a>
-        <img loading="lazy" className="cover-img" src={src} alt="" />
+        <img
+          loading="lazy"
+          className="cover-img"
+          src={src}
+          alt={`${titleOfAnime} Cover`}
+        />
       </figure>
       <p className="anime-title">{titleOfAnime}</p>
       <p className="anime-genre">{gender}</p>

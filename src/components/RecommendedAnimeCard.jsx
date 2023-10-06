@@ -17,7 +17,6 @@ export const RecommendedAnimeCard = ({ anime }) => {
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 24 24"
             data-t="watchlist-svg"
-            aria-labelledby="watchlist-svg"
             aria-hidden="true"
             role="img"
           >
@@ -28,11 +27,19 @@ export const RecommendedAnimeCard = ({ anime }) => {
         <p className="recommended-anime-synopsis">{synopsis}</p>
         <div className="btns-crunchy-container">
           <button className="btn-crunchy ripple">
-            <img className="card-play" src="./img/card-play.svg" alt="" />
+            <img
+              className="card-play"
+              src="./img/card-play.svg"
+              alt="play-icon"
+            />
             {button}
           </button>
           <button className="btn-crunchy btn-favorite ripple">
-            <img className="favorite" src="./img/list.svg" alt="" />
+            <img
+              className="favorite"
+              src="./img/list.svg"
+              alt="favorite-icon"
+            />
             Añadir a favoritos
           </button>
         </div>

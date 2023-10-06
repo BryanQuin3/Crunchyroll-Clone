@@ -35,7 +35,6 @@ export const Carousel = () => {
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 24 24"
                 data-t="watchlist-svg"
-                aria-labelledby="watchlist-svg"
                 aria-hidden="true"
                 role="img"
               >
