@@ -1,16 +1,17 @@
 /* eslint-disable react/prop-types */
+import { Link } from "react-router-dom";
+
 export const AnimeCard = ({ anime }) => {
   const titleOfAnime = anime.title;
   const src =
     anime.images?.webp?.large_image_url || anime.images?.jpg?.large_image_url;
   const gender = anime.genres[0]?.name || "Generic";
-
   return (
     <article className="anime-container">
       <figure className="img-container">
-        <a href={anime.trailer?.url} target="_blank" rel="noreferrer">
+        <Link to={`./anime/${titleOfAnime}`}>
           <img src="./img/play.png" alt="" className="play-icon" />
-        </a>
+        </Link>
         <img
           loading="lazy"
           className="cover-img"

@@ -923,3 +923,60 @@ main {
     font-size: 16px;
   }
 }
+
+.anime-page-body {
+  margin: 0 11vw;
+}
+
+.anime-page-body > .carousel-btns {
+  left: auto;
+  justify-content: flex-start;
+  position: inherit;
+}
+
+.current-anime-cover {
+  width: 100%;
+  max-height: calc(100vh - 410px);
+  object-fit: cover;
+  overflow: hidden;
+}
+
+.current-anime-cover {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.blurred-cover {
+  filter: blur(7px);
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  z-index: -1;
+}
+
+.blurred-cover > img {
+  width: 100%;
+  height: auto;
+  opacity: 0.5;
+}
+
+.anime-cover-min {
+  z-index: 10;
+  position: absolute;
+  width: 35%;
+  height: auto;
+}
+
+.current-anime-info {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-direction: column;
+}
+
+.current-anime-info > .anime-list-title {
+  font-size: 36px;
+  font-weight: 500;
+}
