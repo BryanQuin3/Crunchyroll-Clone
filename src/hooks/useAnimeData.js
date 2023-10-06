@@ -27,15 +27,19 @@ export function useAnimeData() {
     };
 
     const fetchGenreData = async () => {
-      const API_URL_ROMANCE = `https://anime-api-two.vercel.app/romance`;
-      const API_URL_SPORTS = `https://anime-api-two.vercel.app/sport`;
-      const [romance, sports] = await Promise.all([
-        getAnime(API_URL_ROMANCE),
-        getAnime(API_URL_SPORTS),
-      ]);
+      try {
+        const API_URL_ROMANCE = `https://anime-api-two.vercel.app/romance`;
+        const API_URL_SPORTS = `https://anime-api-two.vercel.app/sport`;
+        const [romance, sports] = await Promise.all([
+          getAnime(API_URL_ROMANCE),
+          getAnime(API_URL_SPORTS),
+        ]);
 
-      setRomances(romance);
-      setSports(sports);
+        setRomances(romance);
+        setSports(sports);
+      } catch (error) {
+        throw new Error(error);
+      }
     };
     setTimeout(() => {
       fetchDailyAnimes();
