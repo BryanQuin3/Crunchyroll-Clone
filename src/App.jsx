@@ -16,7 +16,7 @@ function App() {
       <div className={menuState === "no-active" ? "" : "hidden"}>
         <Routes>
           <Route path="/search" element={<SearchPage />} />
-          <Route path="/anime/:animeName" element={<AnimePage />} />
+          <Route path="/anime/:idAnime" element={<AnimePage />} />
           <Route path="/anime" element={<AnimePage />} />
           <Route path="/" element={<HomePage />} />
         </Routes>

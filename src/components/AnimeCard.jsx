@@ -6,10 +6,11 @@ export const AnimeCard = ({ anime }) => {
   const src =
     anime.images?.webp?.large_image_url || anime.images?.jpg?.large_image_url;
   const gender = anime.genres[0]?.name || "Generic";
+  const idAnime = anime.mal_id;
   return (
     <article className="anime-container">
       <figure className="img-container">
-        <Link to={`./anime/${titleOfAnime}`}>
+        <Link to={`./anime/${idAnime}`}>
           <img src="./img/play.png" alt="" className="play-icon" />
         </Link>
         <img
