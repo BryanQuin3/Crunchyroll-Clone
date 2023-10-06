@@ -218,7 +218,7 @@ main {
 }
 
 .img-container {
-  aspect-ratio: 0.72;
+  aspect-ratio: 0.71;
   overflow: hidden;
   box-shadow: 0 0 1px rgba(0, 0, 0, 0.5);
   object-fit: contain;
