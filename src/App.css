@@ -965,7 +965,7 @@ main {
 .anime-cover-min {
   z-index: 10;
   position: absolute;
-  width: 35%;
+  aspect-ratio: 1;
   height: auto;
 }
 

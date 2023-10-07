@@ -4,7 +4,7 @@ export const AnimeInfoBtns = ({ text }) => {
   return (
     <footer className="carousel-btns">
       <Link to="./" className="btn-crunchy ripple">
-        <img className="card-play" src="./img/card-play.svg" alt="" />
+        <img className="card-play" src="../img/card-play.svg" alt="" />
         {text}
       </Link>
       <svg

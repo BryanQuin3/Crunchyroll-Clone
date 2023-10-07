@@ -10,7 +10,7 @@ export const Header = ({ menuState, setMenuState }) => {
     <header>
       <section className="nav-container">
         <Link className="logo-container" to="./">
-          <img className="logo" src="./img/crunchyroll-logo.png" alt="" />
+          <img className="logo" src="../img/crunchyroll-logo.png" alt="" />
         </Link>
         <nav>
           <svg
@@ -53,7 +53,7 @@ export const Header = ({ menuState, setMenuState }) => {
                 </li>
                 <li className="link-arrow-container">
                   <a href="#">Generos</a>
-                  <img className="arrow" src="./img/down-arrow.svg" alt="" />
+                  <img className="arrow" src="../img/down-arrow.svg" alt="" />
                 </li>
               </ul>
               <ul>
@@ -65,7 +65,7 @@ export const Header = ({ menuState, setMenuState }) => {
                 </li>
                 <li className="link-arrow-container">
                   <a href="#">Noticias</a>
-                  <img className="arrow" src="./img/down-arrow.svg" alt="" />
+                  <img className="arrow" src="../img/down-arrow.svg" alt="" />
                 </li>
               </ul>
             </div>

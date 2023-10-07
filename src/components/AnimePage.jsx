@@ -4,11 +4,11 @@ export const AnimePage = () => {
     <div className="anime-page-container">
       <div className="current-anime-cover">
         <div className="blurred-cover">
-          <img src="../img/mushoku-portada.jpe" alt="portada de ..." />
+          <img src="../img/hero-img.jpg" alt="portada de ..." />
         </div>
         <img
           className="anime-cover-min"
-          src="../img/mushoku-portada.jpe"
+          src="../img/hero-img.jpg"
           alt="portada de ..."
         />
       </div>
