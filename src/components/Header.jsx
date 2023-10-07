@@ -92,11 +92,11 @@ export const Header = ({ menuState, setMenuState }) => {
       </section>
       <section className="search-container">
         <Link to="/search" className="search">
-          <img src="./img/search.svg" alt="" />
+          <img src="../img/search.svg" alt="" />
         </Link>
         <div className="user">
-          <img className="user-profile" src="./img/user.jpg" alt="" />
-          <img className="arrow" src="./img/down-arrow.svg" alt="" />
+          <img className="user-profile" src="../img/user.jpg" alt="" />
+          <img className="arrow" src="../img/down-arrow.svg" alt="" />
         </div>
       </section>
     </header>
