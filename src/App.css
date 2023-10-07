@@ -934,11 +934,32 @@ main {
   position: inherit;
 }
 
+.anime-page-body > .carousel-btns > .btn-crunchy {
+  padding: 10px 10px;
+}
+
+.rated-section {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.star-icon {
+  transition: all 0.3s ease-in-out;
+}
+
+.star-rating__star--on {
+  fill: var(--oragenge);
+}
+
+.star-icon:hover:not(.star-rating__star--on) {
+  fill: var(--oragenge);
+  cursor: pointer;
+}
+
 .current-anime-cover {
   width: 100%;
-  max-height: calc(100vh - 410px);
   object-fit: cover;
-  overflow: hidden;
 }
 
 .current-anime-cover {
@@ -954,6 +975,7 @@ main {
   height: auto;
   object-fit: cover;
   z-index: -1;
+  display: none;
 }
 
 .blurred-cover > img {
@@ -964,9 +986,9 @@ main {
 
 .anime-cover-min {
   z-index: 10;
-  position: absolute;
   aspect-ratio: 1;
   height: auto;
+  width: inherit;
 }
 
 .current-anime-info {
@@ -977,6 +999,23 @@ main {
 }
 
 .current-anime-info > .anime-list-title {
-  font-size: 36px;
   font-weight: 500;
+  margin-bottom: 0;
+}
+
+@media (min-width: 769px) {
+  .current-anime-cover {
+    max-height: calc(100vh - 410px);
+    overflow: hidden;
+  }
+  .blurred-cover {
+    display: block;
+  }
+  .current-anime-info > .anime-list-title {
+    font-size: 36px;
+  }
+  .anime-cover-min {
+    position: absolute;
+    width: auto;
+  }
 }

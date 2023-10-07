@@ -1,15 +1,17 @@
 /* eslint-disable react/prop-types */
 import { Link } from "react-router-dom";
+import { useViewTransition } from "../hooks/useViewTransition";
 export const Header = ({ menuState, setMenuState }) => {
-  const handleClick = () => {
+  const handleClickMenu = () => {
     setMenuState((preview) =>
       preview === "no-active" ? "active" : "no-active"
     );
   };
+  const { handleClick } = useViewTransition("./");
   return (
     <header>
       <section className="nav-container">
-        <Link className="logo-container" to="./">
+        <Link className="logo-container" to="./" onClick={handleClick}>
           <img className="logo" src="../img/crunchyroll-logo.png" alt="" />
         </Link>
         <nav>
@@ -21,7 +23,7 @@ export const Header = ({ menuState, setMenuState }) => {
             aria-labelledby="menu-svg"
             aria-hidden="true"
             role="img"
-            onClick={handleClick}
+            onClick={handleClickMenu}
           >
             <title id="menu-svg">Menú</title>
             <path d="M21 4a1 1 0 0 1 0 2H3a1 1 0 0 1 0-2h18zm0 7a1 1 0 0 1 0 2H3a1 1 0 0 1 0-2h18zm0 7a1 1 0 0 1 0 2H3a1 1 0 0 1 0-2h18z"></path>

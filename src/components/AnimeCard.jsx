@@ -1,5 +1,6 @@
 /* eslint-disable react/prop-types */
 import { Link } from "react-router-dom";
+import { useViewTransition } from "../hooks/useViewTransition";
 
 export const AnimeCard = ({ anime }) => {
   const titleOfAnime = anime.title;
@@ -7,10 +8,12 @@ export const AnimeCard = ({ anime }) => {
     anime.images?.webp?.large_image_url || anime.images?.jpg?.large_image_url;
   const gender = anime.genres[0]?.name || "Generic";
   const idAnime = anime.mal_id;
+  const { handleClick } = useViewTransition(`/anime/${idAnime}`);
+
   return (
     <article className="anime-container">
       <figure className="img-container">
-        <Link to={`./anime/${idAnime}`}>
+        <Link to={`./anime/${idAnime}`} onClick={handleClick}>
           <img src="./img/play.png" alt="" className="play-icon" />
         </Link>
         <img
