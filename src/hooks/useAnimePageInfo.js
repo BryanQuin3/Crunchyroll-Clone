@@ -8,9 +8,9 @@ export function useAnimePageInfo() {
   const anime =
     searchInLocalStorage(genders, idAnime) || searchAnimeFromMocks(idAnime);
 
-  const { title, images, score, genres } = anime;
+  const { title, images, score, genres, synopsis } = anime;
 
   const rating = Math.floor(score / 2);
 
-  return { title, images, rating, genres };
+  return { title, images, rating, genres, synopsis };
 }

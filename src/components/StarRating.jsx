@@ -23,7 +23,7 @@ export const StarRating = ({ rating }) => {
       {stars}
       <div className="rated">
         <p>
-          Puntuación media <strong>{rating}</strong>
+          Media: <strong>{rating}</strong>
         </p>
       </div>
     </div>

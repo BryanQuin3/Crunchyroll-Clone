@@ -925,13 +925,36 @@ main {
 }
 
 .anime-page-body {
-  margin: 0 11vw;
+  margin: 0 5vw;
+  position: absolute;
+  top: 70%;
+  z-index: 12;
+  padding-bottom: 80px;
+}
+
+@media (min-width: 769px) {
+  .anime-page-body {
+    margin: 0 11vw;
+  }
+}
+
+.anime-page-body > .carousel-btns::before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  background: linear-gradient(to top, rgba(0, 0, 0, 1), rgba(0, 0, 0, 1));
 }
 
 .anime-page-body > .carousel-btns {
   left: auto;
   justify-content: flex-start;
-  position: inherit;
+  position: fixed;
+  bottom: 0;
+  z-index: 12;
 }
 
 .anime-page-body > .carousel-btns > .btn-crunchy {
@@ -987,8 +1010,19 @@ main {
 .anime-cover-min {
   z-index: 10;
   aspect-ratio: 1;
-  height: auto;
+  height: 70vh;
   width: inherit;
+}
+
+.current-anime-cover::before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: calc(25vh);
+  z-index: 11;
+  background: linear-gradient(to top, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0));
 }
 
 .current-anime-info {
@@ -1018,4 +1052,18 @@ main {
     position: absolute;
     width: auto;
   }
+  .anime-page-body > .carousel-btns::before,
+  .current-anime-cover::before {
+    background: transparent;
+  }
+  .anime-page-body {
+    position: inherit;
+  }
+}
+
+.current-anime-synopsis {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 }

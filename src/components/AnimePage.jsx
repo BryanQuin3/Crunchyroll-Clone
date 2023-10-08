@@ -3,7 +3,7 @@ import { StarRating } from "./StarRating";
 import { useAnimePageInfo } from "../hooks/useAnimePageInfo";
 
 export const AnimePage = () => {
-  const { title, images, rating, genres } = useAnimePageInfo();
+  const { title, images, rating, genres, synopsis } = useAnimePageInfo();
 
   return (
     <div className="anime-page-container">
@@ -28,6 +28,9 @@ export const AnimePage = () => {
             })}
           </p>
           {<StarRating rating={rating} />}
+        </div>
+        <div className="current-anime-synopsis">
+          <p>{synopsis}</p>
         </div>
         <AnimeInfoBtns text="Comenzar a ver t1 e1" />
       </section>
