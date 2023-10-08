@@ -1,18 +1,9 @@
 import { AnimeInfoBtns } from "./AnimeInfoBtns";
 import { StarRating } from "./StarRating";
-import { useParams } from "react-router-dom";
-import { searchInLocalStorage } from "../constants/localStorage";
-import { searchAnimeFromMocks } from "../constants/searchAnimeFromMocks";
+import { useAnimePageInfo } from "../hooks/useAnimePageInfo";
 
 export const AnimePage = () => {
-  const { idAnime } = useParams();
-  const genders = ["romances", "sports", "dayliAnimes", "recommendedAnimes"];
-  const anime =
-    searchInLocalStorage(genders, idAnime) || searchAnimeFromMocks(idAnime);
-
-  const { title, images, score, genres } = anime;
-
-  const rating = Math.floor(score / 2);
+  const { title, images, rating, genres } = useAnimePageInfo();
 
   return (
     <div className="anime-page-container">
