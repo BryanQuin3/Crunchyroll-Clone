@@ -960,10 +960,6 @@ main {
 }
 
 .anime-page-body > .carousel-btns > .btn-crunchy {
-  padding: 10px 35px;
-}
-
-.anime-page-body > .carousel-btns > .btn-crunchy {
   flex-grow: 1;
   padding: 10px;
 }
@@ -1065,6 +1061,9 @@ main {
   }
   .anime-page-body {
     position: inherit;
+  }
+  .anime-page-body > .carousel-btns > .btn-crunchy {
+    flex-grow: 0;
   }
 }
 
