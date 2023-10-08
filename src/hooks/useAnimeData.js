@@ -1,49 +1,54 @@
 import { useState, useEffect } from "react";
-import { getAnime } from "../services/getAnime";
 import { getDay } from "../constants/getDay";
+import { fetchDailyAnimes, fetchGenreData } from "../services/api";
+import {
+  getFromLocalStorage,
+  saveToLocalStorage,
+} from "../constants/localStorage";
 
 export function useAnimeData() {
+  const [loading, setLoading] = useState(true);
   const [today, yesterday] = getDay();
   const [dayliAnimes, setDayliAnimes] = useState([]);
   const [romances, setRomances] = useState([]);
   const [sports, setSports] = useState([]);
 
   useEffect(() => {
-    const fetchDailyAnimes = async () => {
-      const API_URL_TODAY = `https://api.jikan.moe/v4/schedules?filter=${today}`;
-      const API_URL_YESTERDAY = `https://api.jikan.moe/v4/schedules?filter=${yesterday}`;
+    const fetchAndSaveData = async () => {
+      const dayliAnimesFromLocalStorage = getFromLocalStorage("dayliAnimes");
+      const romancesFromLocalStorage = getFromLocalStorage("romances");
+      const sportsFromLocalStorage = getFromLocalStorage("sports");
 
-      const [dayliAnimesToday, dayliAnimesYesterday] = await Promise.all([
-        getAnime(API_URL_TODAY),
-        getAnime(API_URL_YESTERDAY),
-      ]);
+      if (
+        dayliAnimesFromLocalStorage &&
+        romancesFromLocalStorage &&
+        sportsFromLocalStorage
+      ) {
+        setDayliAnimes(dayliAnimesFromLocalStorage);
+        setRomances(romancesFromLocalStorage);
+        setSports(sportsFromLocalStorage);
+        setLoading(false);
+      } else {
+        try {
+          const combinedAnimes = await fetchDailyAnimes(today, yesterday);
+          setDayliAnimes(combinedAnimes);
+          saveToLocalStorage("dayliAnimes", combinedAnimes);
 
-      const combinedAnimes = [
-        ...dayliAnimesToday.data,
-        ...dayliAnimesYesterday.data,
-      ];
-
-      setDayliAnimes(combinedAnimes);
+          const { romance, sports } = await fetchGenreData();
+          setRomances(romance);
+          setSports(sports);
+          saveToLocalStorage("romances", romance);
+          saveToLocalStorage("sports", sports);
+        } catch (error) {
+          console.error("Error fetching data:", error);
+        } finally {
+          setLoading(false);
+        }
+      }
     };
 
-    const fetchGenreData = async () => {
-      const API_URL_ROMANCE = `https://anime-api-two.vercel.app/romance`;
-      const API_URL_SPORTS = `https://anime-api-two.vercel.app/sport`;
-      const [romance, sports] = await Promise.all([
-        getAnime(API_URL_ROMANCE),
-        getAnime(API_URL_SPORTS),
-      ]);
-
-      setRomances(romance);
-      setSports(sports);
-    };
-    setTimeout(() => {
-      fetchDailyAnimes();
-    }, 1500);
-    setTimeout(() => {
-      fetchGenreData();
-    }, 1500);
+    fetchAndSaveData();
   }, [today, yesterday]);
 
-  return { dayliAnimes, romances, sports };
+  return { dayliAnimes, romances, sports, loading };
 }

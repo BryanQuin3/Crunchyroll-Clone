@@ -1,32 +1,17 @@
 import { AnimeInfoBtns } from "./AnimeInfoBtns";
 import { StarRating } from "./StarRating";
 import { useParams } from "react-router-dom";
-import { getAnime } from "../services/getAnime";
-import { useEffect, useState } from "react";
+import { searchInLocalStorage } from "../constants/localStorage";
+import { searchAnimeFromMocks } from "../constants/searchAnimeFromMocks";
 
 export const AnimePage = () => {
   const { idAnime } = useParams();
-  const API_URL = `https://api.jikan.moe/v4/anime/${idAnime}`;
-  const [anime, setAnime] = useState({
-    title: "",
-    images: { webp: { large_image_url: "" } },
-    score: 0,
-    genres: [{ name: "" }],
-  });
-
-  useEffect(() => {
-    const fetchAnime = async () => {
-      try {
-        const response = await getAnime(API_URL);
-        setAnime(response.data || {});
-      } catch (error) {
-        console.error("Error al cargar el anime:", error);
-      }
-    };
-    fetchAnime();
-  }, [API_URL]);
+  const genders = ["romances", "sports", "dayliAnimes", "recommendedAnimes"];
+  const anime =
+    searchInLocalStorage(genders, idAnime) || searchAnimeFromMocks(idAnime);
 
   const { title, images, score, genres } = anime;
+
   const rating = Math.floor(score / 2);
 
   return (

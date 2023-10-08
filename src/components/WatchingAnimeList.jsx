@@ -3,8 +3,7 @@ import { WatchingAnimeCard } from "./WatchingAnimeCard";
 import { useAnimeWatching } from "../hooks/useAnimeWatching";
 
 export const WatchingAnimeList = () => {
-  const { episodeTitle, time, episodesTitles, times, watchingAnimes } =
-    useAnimeWatching();
+  const { episodesTitles, times, watchingAnimes } = useAnimeWatching();
 
   return (
     <section className="anime-list continue-watching">
@@ -18,8 +17,8 @@ export const WatchingAnimeList = () => {
             key={index}
             id={index}
             anime={anime}
-            episode={episodesTitles[index] || episodeTitle}
-            timeLeft={times[index] || time}
+            episode={episodesTitles[index]}
+            timeLeft={times[index]}
           />
         ))}
       </div>

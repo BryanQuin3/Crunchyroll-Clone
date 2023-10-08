@@ -4,6 +4,7 @@ export function getDay() {
   const day = date.getDay();
   // Obtener el nombre del día de la semana en ingles
   const days = [
+    "sunday",
     "monday",
     "tuesday",
     "wednesday",
@@ -12,7 +13,8 @@ export function getDay() {
     "other",
     "other",
   ];
-  const yesterday = days[day - 2];
-  const today = days[day - 1];
+  // Obtener el nombre del día anterior
+  const yesterday = days[day - 1];
+  const today = days[day];
   return [today, yesterday];
 }
