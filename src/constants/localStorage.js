@@ -11,10 +11,7 @@ export const searchInLocalStorage = (keys, id) => {
     const data = getFromLocalStorage(key);
     if (data) {
       const anime = data.find((item) => item.mal_id == id);
-      if (anime) {
-        return anime;
-      }
+      if (anime) return anime;
     }
   }
-  throw new Error(`No se encontró un objeto con mal_id ${id}`);
 };
