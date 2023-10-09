@@ -1,6 +1,8 @@
 import { useState } from "react";
 import { AnimeCard } from "./AnimeCard";
 import { capitalizeFirstLetter } from "../constants/capitalizeFirstLetter";
+import { saveToLocalStorage } from "../constants/localStorage";
+import { getAnime } from "../services/getAnime";
 
 export const SearchPage = () => {
   const [searchQuery, setSearchQuery] = useState("");
@@ -11,9 +13,10 @@ export const SearchPage = () => {
       const animeNameCapitalized = capitalizeFirstLetter(searchQuery);
       const API_URL = `https://api.jikan.moe/v4/anime?q=${animeNameCapitalized}`;
       try {
-        const response = await fetch(API_URL);
-        const data = await response.json();
-        setSearchResults(data.data);
+        const response = await getAnime(API_URL);
+        const data = response.data;
+        setSearchResults(data);
+        saveToLocalStorage("searchResults", data);
       } catch (error) {
         console.error("Error al buscar animes:", error);
         setSearchResults([]);

@@ -1,19 +1,8 @@
 /* eslint-disable react/prop-types */
 import { Star } from "./Star";
-export const StarRating = ({ rating }) => {
-  const handleStarClick = (e) => {
-    e.preventDefault();
-    const star = e.target;
-    //change the color of fill the star
-    star.classList.toggle("star-rating__star--on");
-    //change the color of the previous stars
-    const previousStars = star.previousElementSibling;
-    if (previousStars) {
-      previousStars.classList.toggle("star-rating__star--on");
-    }
-  };
+export const StarRating = ({ rating, score_by }) => {
   const stars = Array.from({ length: 5 }, (_, index) => (
-    <div onClick={handleStarClick} key={index}>
+    <div key={index}>
       <Star active={rating > index} />
     </div>
   ));
@@ -23,7 +12,7 @@ export const StarRating = ({ rating }) => {
       {stars}
       <div className="rated">
         <p>
-          Media: <strong>{rating}</strong>
+          Media: <strong>{rating}</strong> ({score_by})
         </p>
       </div>
     </div>

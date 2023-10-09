@@ -3,7 +3,8 @@ import { StarRating } from "./StarRating";
 import { useAnimePageInfo } from "../hooks/useAnimePageInfo";
 
 export const AnimePage = () => {
-  const { title, images, rating, genres, synopsis } = useAnimePageInfo();
+  const { title, images, rating, genres, synopsis, scored } =
+    useAnimePageInfo();
 
   return (
     <div className="anime-page-container">
@@ -27,7 +28,7 @@ export const AnimePage = () => {
               );
             })}
           </p>
-          {<StarRating rating={rating} />}
+          {<StarRating rating={rating} score_by={scored} />}
         </div>
         <div className="current-anime-synopsis">
           <p>{synopsis}</p>

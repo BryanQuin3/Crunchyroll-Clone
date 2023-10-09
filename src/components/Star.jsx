@@ -7,7 +7,7 @@ export const Star = ({ active }) => (
     data-t=""
     aria-hidden="false"
     role="img"
-    width={30}
+    width={25}
     fill="#f1f1f1"
   >
     <title id="star-svg">Reseña destacada</title>

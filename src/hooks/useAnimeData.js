@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
-import { getDay } from "../constants/getDay";
-import { fetchDailyAnimes, fetchGenreData } from "../services/api";
+import { fetchData } from "../services/api";
+import { isDataUpToDate } from "../constants/isDataUpToDate";
 import {
   getFromLocalStorage,
   saveToLocalStorage,
@@ -8,47 +8,41 @@ import {
 
 export function useAnimeData() {
   const [loading, setLoading] = useState(true);
-  const [today, yesterday] = getDay();
   const [dayliAnimes, setDayliAnimes] = useState([]);
   const [romances, setRomances] = useState([]);
   const [sports, setSports] = useState([]);
 
   useEffect(() => {
-    const fetchAndSaveData = async () => {
-      const dayliAnimesFromLocalStorage = getFromLocalStorage("dayliAnimes");
-      const romancesFromLocalStorage = getFromLocalStorage("romances");
-      const sportsFromLocalStorage = getFromLocalStorage("sports");
-
-      if (
-        dayliAnimesFromLocalStorage &&
-        romancesFromLocalStorage &&
-        sportsFromLocalStorage
-      ) {
-        setDayliAnimes(dayliAnimesFromLocalStorage);
-        setRomances(romancesFromLocalStorage);
-        setSports(sportsFromLocalStorage);
-        setLoading(false);
+    const fetchDataAndSave = async () => {
+      const dataTimestamp = getFromLocalStorage("dataTimestamp");
+      if (isDataUpToDate(dataTimestamp)) {
+        // Los datos están actualizados, cargar desde el almacenamiento local
+        setDayliAnimes(getFromLocalStorage("dayliAnimes"));
+        setRomances(getFromLocalStorage("romances"));
+        setSports(getFromLocalStorage("sports"));
       } else {
+        // Los datos no están actualizados, obtener desde el servidor
         try {
-          const combinedAnimes = await fetchDailyAnimes(today, yesterday);
+          const { combinedAnimes, romance, sports } = await fetchData();
           setDayliAnimes(combinedAnimes);
-          saveToLocalStorage("dayliAnimes", combinedAnimes);
-
-          const { romance, sports } = await fetchGenreData();
           setRomances(romance);
           setSports(sports);
+
+          // Actualizar los datos en el almacenamiento local y la marca de tiempo
+          saveToLocalStorage("dayliAnimes", combinedAnimes);
           saveToLocalStorage("romances", romance);
           saveToLocalStorage("sports", sports);
+          saveToLocalStorage("dataTimestamp", new Date().getTime());
         } catch (error) {
           console.error("Error fetching data:", error);
-        } finally {
-          setLoading(false);
         }
       }
+
+      setLoading(false);
     };
 
-    fetchAndSaveData();
-  }, [today, yesterday]);
+    fetchDataAndSave();
+  }, []);
 
   return { dayliAnimes, romances, sports, loading };
 }

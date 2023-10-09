@@ -1,6 +1,6 @@
 import { getAnime } from "../services/getAnime";
 import { getRandomNumber } from "../constants/getRandomNumber";
-
+import { getDay } from "../constants/getDay";
 export async function fetchDailyAnimes(today, yesterday) {
   const API_URL_TODAY = `https://api.jikan.moe/v4/schedules?filter=${today}`;
   const API_URL_YESTERDAY = `https://api.jikan.moe/v4/schedules?filter=${yesterday}`;
@@ -55,4 +55,13 @@ export async function fetchEpisodesData(animeList) {
   }
 
   return { episodeTitles, episodeTimes };
+}
+
+export async function fetchData() {
+  const [today, yesterday] = getDay();
+
+  const combinedAnimes = await fetchDailyAnimes(today, yesterday);
+  const { romance, sports } = await fetchGenreData();
+
+  return { combinedAnimes, romance, sports };
 }
