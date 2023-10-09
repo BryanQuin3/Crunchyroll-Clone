@@ -970,17 +970,8 @@ main {
   align-items: center;
 }
 
-.star-icon {
-  transition: all 0.3s ease-in-out;
-}
-
 .star-rating__star--on {
   fill: var(--oragenge);
-}
-
-.star-icon:hover:not(.star-rating__star--on) {
-  fill: var(--oragenge);
-  cursor: pointer;
 }
 
 .current-anime-cover {
@@ -1072,4 +1063,11 @@ main {
   -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
   overflow: hidden;
+}
+
+.current-anime-episodes {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 15px;
+  margin-top: 20px;
 }

@@ -1,11 +1,19 @@
 import { AnimeInfoBtns } from "./AnimeInfoBtns";
 import { StarRating } from "./StarRating";
 import { useAnimePageInfo } from "../hooks/useAnimePageInfo";
-
+import { fetchAnimeWatching } from "../services/api";
+import { useEffect, useState } from "react";
+import { WatchingAnimeCard } from "./WatchingAnimeCard";
 export const AnimePage = () => {
-  const { title, images, rating, genres, synopsis, scored } =
+  const { anime, title, images, rating, genres, synopsis, scored } =
     useAnimePageInfo();
-
+  const [animeEpisodes, setAnimeEpisodes] = useState([]);
+  useEffect(() => {
+    fetchAnimeWatching(anime).then((response) => {
+      setAnimeEpisodes(response.episodes.data);
+      window.scrollTo(0, 10);
+    });
+  }, []);
   return (
     <div className="anime-page-container">
       <div className="current-anime-cover">
@@ -32,6 +40,19 @@ export const AnimePage = () => {
         </div>
         <div className="current-anime-synopsis">
           <p>{synopsis}</p>
+        </div>
+        <div className="current-anime-episodes">
+          {animeEpisodes.map((e) => {
+            return (
+              <WatchingAnimeCard
+                key={e.mal_id}
+                id={e.mal_id}
+                src={images?.webp?.large_image_url}
+                episode={e.title}
+                onAnimePage={true}
+              />
+            );
+          })}
         </div>
         <AnimeInfoBtns text="Comenzar a ver t1 e1" />
       </section>

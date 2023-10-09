@@ -38,7 +38,7 @@ export async function fetchAnimeWatching(anime) {
   const episodes = await response.json();
   const fetchedEpisodeTitle = episodes.data[0]?.title;
 
-  return { fetchedEpisodeTitle, fetchedTime };
+  return { fetchedEpisodeTitle, fetchedTime, episodes };
 }
 
 export async function fetchEpisodesData(animeList) {
