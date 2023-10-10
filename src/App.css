@@ -1071,6 +1071,10 @@ main {
   margin-top: 20px;
 }
 
+.episode-card-body {
+  width: 100%;
+}
+
 .episode-card > .cover-container {
   min-width: 160px;
 }
