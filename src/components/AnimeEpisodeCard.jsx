@@ -27,6 +27,7 @@ export const AnimeEpisodeCard = ({ id, src, duration, title, episode }) => {
             <span>{random}</span>
           </div>
           <img src="../img/download.svg" alt="download-icon" />
+          <img src="../img/menu-options.svg" alt="options-icon" />
         </div>
       </section>
     </div>
