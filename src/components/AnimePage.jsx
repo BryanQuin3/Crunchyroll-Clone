@@ -1,42 +1,13 @@
 import { AnimeInfoBtns } from "./AnimeInfoBtns";
 import { StarRating } from "./StarRating";
 import { useAnimePageInfo } from "../hooks/useAnimePageInfo";
-import { getAnime } from "../services/getAnime";
-import { useEffect, useState, useCallback } from "react";
+import { useAnimeEpisodes } from "../hooks/useAnimeEpisodes";
 import { AnimeEpisodeCard } from "./AnimeEpisodeCard";
 import { AnimeEpisodeCardSkeleton } from "../skeleton/AnimeEpisodeCardSkeleton";
 export const AnimePage = () => {
   const { title, images, rating, genres, synopsis, scored } =
     useAnimePageInfo();
-  const [animeEpisodes, setAnimeEpisodes] = useState([]);
-  const [animeID, setAnimeID] = useState(null);
-
-  const fetchAnimeID = useCallback(() => {
-    if (title) {
-      const URL = `https://kitsu.io/api/edge/anime?filter[text]=${title}`;
-      getAnime(URL).then((response) => {
-        setAnimeID(response.data[0].id);
-      });
-    }
-  }, [title]);
-
-  const fetchAnimeEpisodes = useCallback(() => {
-    if (animeID) {
-      const URL = `https://kitsu.io/api/edge/anime/${animeID}/episodes`;
-      getAnime(URL).then((response) => {
-        setAnimeEpisodes(response.data);
-      });
-    }
-  }, [animeID]);
-
-  useEffect(() => {
-    fetchAnimeID();
-  }, [fetchAnimeID]);
-
-  useEffect(() => {
-    fetchAnimeEpisodes();
-    window.scrollTo(0, 0);
-  }, [fetchAnimeEpisodes]);
+  const { animeEpisodes } = useAnimeEpisodes(title);
   return (
     <div className="anime-page-container">
       <div className="current-anime-cover">
