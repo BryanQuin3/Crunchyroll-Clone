@@ -2,24 +2,25 @@ import { AnimeInfoBtns } from "./AnimeInfoBtns";
 import { StarRating } from "./StarRating";
 import { useAnimePageInfo } from "../hooks/useAnimePageInfo";
 import { getAnime } from "../services/getAnime";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useCallback } from "react";
 import { AnimeEpisodeCard } from "./AnimeEpisodeCard";
+import { AnimeEpisodeCardSkeleton } from "../skeleton/AnimeEpisodeCardSkeleton";
 export const AnimePage = () => {
   const { title, images, rating, genres, synopsis, scored } =
     useAnimePageInfo();
   const [animeEpisodes, setAnimeEpisodes] = useState([]);
   const [animeID, setAnimeID] = useState(null);
-  useEffect(() => {
+
+  const fetchAnimeID = useCallback(() => {
     if (title) {
       const URL = `https://kitsu.io/api/edge/anime?filter[text]=${title}`;
       getAnime(URL).then((response) => {
         setAnimeID(response.data[0].id);
-        // window.scrollTo(0, 10);
       });
     }
   }, [title]);
 
-  useEffect(() => {
+  const fetchAnimeEpisodes = useCallback(() => {
     if (animeID) {
       const URL = `https://kitsu.io/api/edge/anime/${animeID}/episodes`;
       getAnime(URL).then((response) => {
@@ -27,6 +28,15 @@ export const AnimePage = () => {
       });
     }
   }, [animeID]);
+
+  useEffect(() => {
+    fetchAnimeID();
+  }, [fetchAnimeID]);
+
+  useEffect(() => {
+    fetchAnimeEpisodes();
+    window.scrollTo(0, 0);
+  }, [fetchAnimeEpisodes]);
   return (
     <div className="anime-page-container">
       <div className="current-anime-cover">
@@ -55,17 +65,24 @@ export const AnimePage = () => {
           <p>{synopsis}</p>
         </div>
         <div className="current-anime-episodes">
+          {animeEpisodes.length === 0 && (
+            <>
+              <AnimeEpisodeCardSkeleton />
+              <AnimeEpisodeCardSkeleton />
+              <AnimeEpisodeCardSkeleton />
+            </>
+          )}
           {animeEpisodes.map((e) => {
+            const { id, attributes } = e;
+            const { thumbnail, canonicalTitle, number, length } = attributes;
+
             return (
               <AnimeEpisodeCard
-                key={e.id}
-                src={
-                  e.attributes.thumbnail?.original ||
-                  images?.webp?.large_image_url
-                }
-                title={e.attributes.canonicalTitle || title}
-                episode={e.attributes.number}
-                duration={e.attributes.length}
+                key={id}
+                src={thumbnail?.original || images?.webp?.large_image_url}
+                title={canonicalTitle || title}
+                episode={number}
+                duration={length}
               />
             );
           })}
