@@ -38,7 +38,7 @@ export function useAnimeWatching() {
               );
               setEpisodesTitles(episodeTitles);
               setTimes(episodeTimes);
-            }, 2000);
+            }, 4000);
           }
         } catch (error) {
           console.log(error);
