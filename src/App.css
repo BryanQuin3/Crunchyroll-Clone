@@ -1046,15 +1046,14 @@ main {
     position: absolute;
     width: auto;
   }
-  .anime-page-body > .carousel-btns::before,
   .current-anime-cover::before {
     background: transparent;
   }
   .anime-page-body {
     position: inherit;
   }
-  .anime-page-body > .carousel-btns > .btn-crunchy {
-    flex-grow: 0;
+  .anime-page-body > .carousel-btns {
+    display: none;
   }
 }
 
@@ -1070,4 +1069,36 @@ main {
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 15px;
   margin-top: 20px;
+}
+
+.episode-card > .cover-container {
+  min-width: 160px;
+}
+
+.episode-info {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+}
+
+.episode-info > .episode-number {
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.episode-options {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.comments-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.comments-section > span {
+  font-size: 14px;
 }

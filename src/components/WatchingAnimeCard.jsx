@@ -2,22 +2,13 @@
 import { Skeleton } from "@mui/material";
 import { setWidth } from "../constants/setWidth";
 import { useEffect } from "react";
-export const WatchingAnimeCard = ({
-  id,
-  anime,
-  episode,
-  timeLeft = 24,
-  onAnimePage = false,
-  src,
-}) => {
-  const titleOfAnime = onAnimePage ? "" : anime.title;
+export const WatchingAnimeCard = ({ id, anime, episode, timeLeft }) => {
+  const titleOfAnime = anime.title;
   const source =
-    src ||
-    anime.images?.webp?.large_image_url ||
-    anime.images?.jpg?.large_image_url;
+    anime.images?.webp?.large_image_url || anime.images?.jpg?.large_image_url;
   const time = 24 - timeLeft;
   const duration = `${timeLeft} min`;
-  const gender = onAnimePage ? "" : anime.genres[0].name;
+  const gender = anime.genres[0].name;
   useEffect(() => {
     setWidth(time, `anime${id}`);
   }, [time, id]);
@@ -31,9 +22,7 @@ export const WatchingAnimeCard = ({
         </figure>
       </div>
       <div className="watching-info">
-        <small className={onAnimePage ? "hidden" : "watching-title"}>
-          {titleOfAnime}
-        </small>
+        <small className="watching-title">{titleOfAnime}</small>
         {episode ? (
           <p className="watching-episode">{episode}</p>
         ) : (
@@ -44,7 +33,7 @@ export const WatchingAnimeCard = ({
             style={{ backgroundColor: "#d0d0d0" }}
           />
         )}
-        <p className={onAnimePage ? "hidden" : "anime-genre"}>{gender}</p>
+        <p className="anime-genre">{gender}</p>
       </div>
     </article>
   );

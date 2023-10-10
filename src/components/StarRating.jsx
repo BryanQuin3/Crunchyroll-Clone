@@ -12,7 +12,7 @@ export const StarRating = ({ rating, score_by }) => {
       {stars}
       <div className="rated">
         <p>
-          Media: <strong>{rating}</strong> ({score_by})
+          Media: <strong>{rating}</strong> ({score_by || 0})
         </p>
       </div>
     </div>
