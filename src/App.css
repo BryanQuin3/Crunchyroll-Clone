@@ -283,7 +283,7 @@ main {
   top: 10%;
   left: 0;
   width: 100%;
-  min-height: 100vh;
+  min-height: calc(100vh - 70px);
   z-index: 3;
   padding-top: 15px;
   background-color: var(--secondaryColor);
@@ -1109,6 +1109,11 @@ main {
 
 .comments-section > span {
   font-size: 14px;
+}
+
+.svg-episode-section:hover {
+  cursor: pointer;
+  fill: var(--oragenge);
 }
 
 .skeleton {
