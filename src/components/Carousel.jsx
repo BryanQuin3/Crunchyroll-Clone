@@ -16,7 +16,7 @@ export const Carousel = () => {
             }`}
           >
             <figure className="card-img-container">
-              <picture>
+              <picture className="card-figure-carousel">
                 <img className="card-img" src={slide.imgSM} alt="" />
                 <img className="card-img-xl" src={slide.imgXL} alt="" />
               </picture>
