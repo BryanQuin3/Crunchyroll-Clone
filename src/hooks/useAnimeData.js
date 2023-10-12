@@ -16,7 +16,7 @@ export function useAnimeData() {
     const fetchDataAndSave = async () => {
       const dataTimestamp = getFromLocalStorage("dataTimestamp");
       if (
-        isDataUpToDate(dataTimestamp) &&
+        isDataUpToDate(dataTimestamp) ||
         !getFromLocalStorage("dayliAnimes")
       ) {
         // Los datos están actualizados, cargar desde el almacenamiento local
