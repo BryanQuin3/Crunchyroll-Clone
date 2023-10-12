@@ -3,7 +3,14 @@ import PrevBtn from "./PrevBtn";
 import NextBtn from "./NextBtn";
 import ListOfAnimes from "./ListOfAnimes";
 
-export const AnimeListSection = ({ animes, title, container, element, id }) => {
+export const AnimeListSection = ({
+  animes,
+  title,
+  container,
+  element,
+  id,
+  loading,
+}) => {
   return (
     <section className="recommendations-section">
       <PrevBtn id={id} />
@@ -14,6 +21,7 @@ export const AnimeListSection = ({ animes, title, container, element, id }) => {
         container={container}
         element={element}
         id={id}
+        loading={loading}
       />
     </section>
   );

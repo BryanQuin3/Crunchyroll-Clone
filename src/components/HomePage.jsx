@@ -9,7 +9,7 @@ import { useAnimeData } from "../hooks/useAnimeData";
 import recommendedAnimes from "../mocks/recommended.json";
 
 export function HomePage() {
-  const { dayliAnimes, romances, sports } = useAnimeData();
+  const { dayliAnimes, romances, sports, loading } = useAnimeData();
   return (
     <>
       <Carousel />
@@ -20,6 +20,7 @@ export function HomePage() {
           container={"new-episodes-anime-list"}
           element={"day-container"}
           id={"day-container-btns"}
+          loading={loading}
         />
       </main>
       <WatchingAnimeList />

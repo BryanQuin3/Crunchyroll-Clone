@@ -1123,3 +1123,7 @@ main {
   justify-content: center;
   height: 100%;
 }
+
+.skleton-cover {
+  margin-bottom: 15px;
+}

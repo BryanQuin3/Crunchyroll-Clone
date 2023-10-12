@@ -3,16 +3,19 @@ import { AnimeCard } from "./AnimeCard";
 import { capitalizeFirstLetter } from "../constants/capitalizeFirstLetter";
 import { saveToLocalStorage } from "../constants/localStorage";
 import { getAnime } from "../services/getAnime";
+import { AnimeCardSkeleton } from "../skeleton/AnimeCardSkeleton";
 
 export const SearchPage = () => {
   const [searchQuery, setSearchQuery] = useState("");
   const [searchResults, setSearchResults] = useState([]);
+  const [loading, setLoading] = useState(false);
 
   const handleSearch = async (event) => {
     if (event.key === "Enter") {
       const animeNameCapitalized = capitalizeFirstLetter(searchQuery);
       const API_URL = `https://api.jikan.moe/v4/anime?q=${animeNameCapitalized}`;
       try {
+        setLoading(true);
         const response = await getAnime(API_URL);
         const data = response.data;
         setSearchResults(data);
@@ -20,6 +23,8 @@ export const SearchPage = () => {
       } catch (error) {
         console.error("Error al buscar animes:", error);
         setSearchResults([]);
+      } finally {
+        setLoading(false);
       }
     }
   };
@@ -38,7 +43,9 @@ export const SearchPage = () => {
           onKeyDown={handleSearch}
         />
         <section className="results-container results">
-          {searchResults.length > 0 ? (
+          {loading ? (
+            <AnimeCardSkeleton total={6} />
+          ) : (
             searchResults.map((anime, index) => {
               return (
                 <div key={index}>
@@ -46,8 +53,6 @@ export const SearchPage = () => {
                 </div>
               );
             })
-          ) : (
-            <div className="no-results">No se encontraron resultados</div>
           )}
         </section>
       </div>

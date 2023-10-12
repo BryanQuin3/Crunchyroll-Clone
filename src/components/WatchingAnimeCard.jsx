@@ -7,7 +7,7 @@ export const WatchingAnimeCard = ({ id, anime, episode, timeLeft }) => {
   const source =
     anime.images?.webp?.large_image_url || anime.images?.jpg?.large_image_url;
   const time = 24 - timeLeft;
-  const duration = `${timeLeft} min`;
+  const duration = `${timeLeft || ""} min`;
   const gender = anime.genres[0].name;
   useEffect(() => {
     setWidth(time, `anime${id}`);
