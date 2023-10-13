@@ -17,6 +17,11 @@ export function useCarousel(slides, autoPlayInterval = 3500) {
   }, []);
 
   useEffect(() => {
+    const firstSlide = slides[0];
+    const imgXL = new Image();
+    const imgSM = new Image();
+    imgXL.src = firstSlide.imgXL;
+    imgSM.src = firstSlide.imgSM;
     const carouselContainer = document.querySelector(".carousel-container");
     const cards = document.querySelectorAll(".carousel-card");
 
