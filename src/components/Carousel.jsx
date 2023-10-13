@@ -17,12 +17,27 @@ export const Carousel = () => {
           >
             <figure className="card-img-container">
               <picture className="card-figure-carousel">
-                <img className="card-img" src={slide.imgSM} alt="" />
-                <img className="card-img-xl" src={slide.imgXL} alt="" />
+                <img
+                  loading="lazy"
+                  className="card-img"
+                  src={slide.imgSM}
+                  alt=""
+                />
+                <img
+                  loading="lazy"
+                  className="card-img-xl"
+                  src={slide.imgXL}
+                  alt=""
+                />
               </picture>
             </figure>
             <div className="anime-about">
-              <img className="anime-logo" src={slide.animeLogo} alt="" />
+              <img
+                loading="lazy"
+                className="anime-logo"
+                src={slide.animeLogo}
+                alt=""
+              />
               <p className="anime-description">{slide.animeDescription}</p>
             </div>
             <AnimeInfoBtns text={slide.btnText} />
