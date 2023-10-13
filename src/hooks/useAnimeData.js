@@ -16,7 +16,7 @@ export function useAnimeData() {
     const fetchDataAndSave = async () => {
       const dataTimestamp = getFromLocalStorage("dataTimestamp");
 
-      if (!dataTimestamp || isDataUpToDate(dataTimestamp)) {
+      if (isDataUpToDate(dataTimestamp)) {
         try {
           const { combinedAnimes, romance, sports } = await fetchData();
           setDayliAnimes(combinedAnimes);
