@@ -15,7 +15,7 @@ export function useAnimeData() {
   useEffect(() => {
     const fetchDataAndSave = async () => {
       const dataTimestamp = getFromLocalStorage("dataTimestamp");
-      if (isDataUpToDate(dataTimestamp)) {
+      if (dataTimestamp && !isDataUpToDate(dataTimestamp)) {
         // Los datos están actualizados, cargar desde el almacenamiento local
         setDayliAnimes(getFromLocalStorage("dayliAnimes"));
         setRomances(getFromLocalStorage("romances"));
