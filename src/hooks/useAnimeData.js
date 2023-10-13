@@ -15,13 +15,8 @@ export function useAnimeData() {
   useEffect(() => {
     const fetchDataAndSave = async () => {
       const dataTimestamp = getFromLocalStorage("dataTimestamp");
-      if (dataTimestamp && !isDataUpToDate(dataTimestamp)) {
-        // Los datos están actualizados, cargar desde el almacenamiento local
-        setDayliAnimes(getFromLocalStorage("dayliAnimes"));
-        setRomances(getFromLocalStorage("romances"));
-        setSports(getFromLocalStorage("sports"));
-      } else {
-        // Los datos no están actualizados, obtener desde el servidor
+
+      if (!dataTimestamp || isDataUpToDate(dataTimestamp)) {
         try {
           const { combinedAnimes, romance, sports } = await fetchData();
           setDayliAnimes(combinedAnimes);
@@ -36,6 +31,11 @@ export function useAnimeData() {
         } catch (error) {
           console.error("Error fetching data:", error);
         }
+      } else {
+        // Los datos están actualizados, cargar desde el almacenamiento local
+        setDayliAnimes(getFromLocalStorage("dayliAnimes"));
+        setRomances(getFromLocalStorage("romances"));
+        setSports(getFromLocalStorage("sports"));
       }
 
       setLoading(false);
