@@ -13,7 +13,11 @@ export const AnimeCard = ({ anime }) => {
   return (
     <article className="anime-container">
       <figure className="img-container">
-        <Link to={`./anime/${idAnime}`} onClick={handleClick}>
+        <Link
+          to={`./anime/${idAnime}`}
+          onClick={handleClick}
+          aria-label={`Ver detalles de ${idAnime}`}
+        >
           <img src="./img/play.png" alt="" className="play-icon" />
         </Link>
         <img

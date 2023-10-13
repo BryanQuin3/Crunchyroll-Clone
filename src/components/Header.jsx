@@ -11,7 +11,12 @@ export const Header = ({ menuState, setMenuState }) => {
   return (
     <header>
       <section className="nav-container">
-        <Link className="logo-container" to="./" onClick={handleClick}>
+        <Link
+          className="logo-container"
+          to="./"
+          onClick={handleClick}
+          aria-label="ir a la página de inicio"
+        >
           <img className="logo" src="../img/crunchyroll-logo.png" alt="" />
         </Link>
         <nav>
@@ -33,41 +38,65 @@ export const Header = ({ menuState, setMenuState }) => {
               <small>Explorar</small>
               <ul className="main-list">
                 <li>
-                  <a href="#">Popular</a>
+                  <a aria-label="ver animes populares" href="#">
+                    Popular
+                  </a>
                 </li>
                 <li>
-                  <a href="#">Novedades</a>
+                  <a aria-label="ver novedades de animes" href="#">
+                    Novedades
+                  </a>
                 </li>
                 <li>
-                  <a href="#">Alfabético</a>
+                  <a
+                    aria-label="ver animes ordenados por orden alfabético"
+                    href="#"
+                  >
+                    Alfabético
+                  </a>
                 </li>
                 <li>
-                  <a href="#">Temporada de Simulcasts</a>
+                  <a aria-label="ver temporada de Simulcasts" href="#">
+                    Temporada de Simulcasts
+                  </a>
                 </li>
                 <li>
-                  <a href="#">Temporada de Simulcasts</a>
+                  <a aria-label="ver calendario de lanzamientos" href="#">
+                    Calendario de lanzamientos
+                  </a>
                 </li>
                 <li>
-                  <a href="#">Calendario de lanzamientos</a>
-                </li>
-                <li>
-                  <a href="#">Videos musicales y conciertos</a>
+                  <a aria-label="ver videos musicales y conciertos" href="#">
+                    Videos musicales y conciertos
+                  </a>
                 </li>
                 <li className="link-arrow-container">
-                  <a href="#">Generos</a>
+                  <a aria-label="ver animes por generos" href="#">
+                    Generos
+                  </a>
                   <img className="arrow" src="../img/down-arrow.svg" alt="" />
                 </li>
               </ul>
               <ul>
                 <li>
-                  <a href="#">Manga</a>
+                  <a aria-label="ver mangas" href="#">
+                    Manga
+                  </a>
                 </li>
                 <li>
-                  <a href="#">Juegos</a>
+                  <a aria-label="ver juegos" href="#">
+                    Juegos
+                  </a>
                 </li>
                 <li className="link-arrow-container">
-                  <a href="#">Noticias</a>
-                  <img className="arrow" src="../img/down-arrow.svg" alt="" />
+                  <a aria-label="ver noticias" href="#">
+                    Noticias
+                  </a>
+                  <img
+                    className="arrow"
+                    src="../img/down-arrow.svg"
+                    alt="arrow-icon"
+                  />
                 </li>
               </ul>
             </div>
@@ -93,12 +122,16 @@ export const Header = ({ menuState, setMenuState }) => {
         </nav>
       </section>
       <section className="search-container">
-        <Link to="/search" className="search">
-          <img src="../img/search.svg" alt="" />
+        <Link to="/search" className="search" aria-label="buscar anime">
+          <img src="../img/search.svg" alt="search-icon" />
         </Link>
         <div className="user">
-          <img className="user-profile" src="../img/user.jpg" alt="" />
-          <img className="arrow" src="../img/down-arrow.svg" alt="" />
+          <img
+            className="user-profile"
+            src="../img/user.jpg"
+            alt="user-profile"
+          />
+          <img className="arrow" src="../img/down-arrow.svg" alt="arrow-icon" />
         </div>
       </section>
     </header>
