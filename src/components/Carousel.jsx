@@ -18,13 +18,13 @@ export const Carousel = () => {
             <figure className="card-img-container">
               <picture className="card-figure-carousel">
                 <img
-                  loading="lazy"
+                  loading={index > 0 ? "lazy" : "auto"}
                   className="card-img"
                   src={slide.imgSM}
                   alt=""
                 />
                 <img
-                  loading="lazy"
+                  loading={index > 0 ? "lazy" : "auto"}
                   className="card-img-xl"
                   src={slide.imgXL}
                   alt=""
