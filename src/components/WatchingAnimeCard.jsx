@@ -16,8 +16,13 @@ export const WatchingAnimeCard = ({ id, anime, episode, timeLeft }) => {
     <article className="watching">
       <div id={`anime${id}`}>
         <figure className="cover-container ripple">
-          <img className="img-cover" src={source} alt="" />
-          <img className="play-icon" src="../img/watching.svg" alt="" />
+          <img loading="lazy" className="img-cover" src={source} alt="" />
+          <img
+            loading="lazy"
+            className="play-icon"
+            src="../img/watching.svg"
+            alt=""
+          />
           <span className="minutes">{duration}</span>
         </figure>
       </div>
