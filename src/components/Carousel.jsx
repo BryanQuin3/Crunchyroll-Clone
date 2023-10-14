@@ -3,14 +3,21 @@ import { slides } from "../constants/slides";
 import { AnimeInfoBtns } from "./AnimeInfoBtns";
 
 export const Carousel = () => {
-  const { currentSlide, handleNextBtn, handlePrevBtn } = useCarousel(slides);
+  const {
+    currentSlide,
+    handleNextBtn,
+    handlePrevBtn,
+    carouselContainerRef,
+    cardRefs,
+  } = useCarousel(slides);
 
   return (
     <section className="hero-carousel">
-      <div className="carousel-container">
+      <div className="carousel-container" ref={carouselContainerRef}>
         {slides.map((slide, index) => (
           <div
             key={index}
+            ref={cardRefs[index]}
             className={`carousel-card ${
               index === currentSlide ? "active" : ""
             }`}
