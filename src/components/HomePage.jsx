@@ -19,7 +19,6 @@ export function HomePage() {
           title={"Episodios Nuevos"}
           container={"new-episodes-anime-list"}
           element={"day-container"}
-          id={"day-container-btns"}
           loading={loading}
         />
       </main>
@@ -29,7 +28,6 @@ export function HomePage() {
         title={"Recomendado para ti"}
         container={""}
         element={"recommendations"}
-        id={"recommendations-btns"}
       />
       <section className="recommended-anime-section">
         <RecommendedAnimeCard anime={animeFeed[0]} />
@@ -43,7 +41,6 @@ export function HomePage() {
         title={"Estudios y romances"}
         container={""}
         element={"romance"}
-        id={"romance-btns"}
       />
       <section className="recommended-anime-section">
         <RecommendedAnimeCard anime={animeFeed[1]} />
@@ -57,7 +54,6 @@ export function HomePage() {
         title={"¡ES LA HORA DEL DEPORTE!"}
         container={""}
         element={"recommendations"}
-        id={"sports-btns"}
       />
       <section className="recommended-anime-section">
         <RecommendedAnimeCard anime={animeFeed[2]} />
