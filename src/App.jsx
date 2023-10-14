@@ -17,7 +17,7 @@ function App() {
         <Routes>
           <Route path="/search" element={<SearchPage />} />
           <Route path="/anime/:idAnime" element={<AnimePage />} />
-          <Route path="/anime" element={<AnimePage />} />
+          <Route path="/anime" element={<p>Page not found</p>} />
           <Route path="/" element={<HomePage />} />
         </Routes>
       </div>
