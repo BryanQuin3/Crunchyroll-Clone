@@ -1,5 +1,5 @@
-export const scroll = (id, direction) => {
-  const scrollContainer = document.querySelector(`#${id}`);
+export const scroll = (element, direction) => {
+  const scrollContainer = element;
   const scrollDistance = 1150;
   const scrollDuration = 1000;
   const smoothScroll = (targetScrollLeft, startTime = 0) => {

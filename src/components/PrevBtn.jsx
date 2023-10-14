@@ -1,8 +1,8 @@
 /* eslint-disable react/prop-types */
 import { scroll } from "../logics/scroll";
-export const PrevBtn = ({ id }) => {
+export const PrevBtn = ({ scrollElement }) => {
   const handlePrevBtn = () => {
-    scroll(id, "left");
+    scroll(scrollElement.current, "left");
   };
   return (
     <div className="animeList-btns-container prev-btn">

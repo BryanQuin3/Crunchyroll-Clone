@@ -1,8 +1,8 @@
 /* eslint-disable react/prop-types */
 import { scroll } from "../logics/scroll";
-export const NextBtn = ({ id }) => {
+export const NextBtn = ({ scrollElement }) => {
   const handleNextBtn = () => {
-    scroll(id, "right");
+    scroll(scrollElement.current, "right");
   };
 
   return (
