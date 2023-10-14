@@ -1,7 +1,7 @@
 /* eslint-disable react/prop-types */
 import { Skeleton } from "@mui/material";
 import { setWidth } from "../constants/setWidth";
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
 export const WatchingAnimeCard = ({ id, anime, episode, timeLeft }) => {
   const titleOfAnime = anime.title;
   const source =
@@ -9,12 +9,13 @@ export const WatchingAnimeCard = ({ id, anime, episode, timeLeft }) => {
   const time = 24 - timeLeft;
   const duration = `${timeLeft || ""} min`;
   const gender = anime.genres[0].name;
+  const animeContainerRef = useRef(null);
   useEffect(() => {
-    setWidth(time, `anime${id}`);
+    setWidth(time, animeContainerRef.current);
   }, [time, id]);
   return (
     <article className="watching">
-      <div id={`anime${id}`}>
+      <div ref={animeContainerRef}>
         <figure className="cover-container ripple">
           <img loading="lazy" className="img-cover" src={source} alt="" />
           <img
