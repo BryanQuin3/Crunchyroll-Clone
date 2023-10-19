@@ -203,19 +203,6 @@ main {
 .results-container .anime-container > .img-container {
   height: 230px;
 }
-.anime-container:hover > .anime-title,
-.anime-container:hover .play-icon {
-  /* color azul */
-  color: var(--oragenge);
-  opacity: 1;
-  cursor: pointer;
-}
-
-.anime-container:hover .cover-img {
-  filter: brightness(0.5);
-  cursor: pointer;
-  transform: scale(1.1);
-}
 
 .img-container {
   aspect-ratio: 0.71;
@@ -236,6 +223,19 @@ main {
   .img-container {
     width: 203px;
     height: 304px;
+  }
+  .anime-container:hover > .anime-title,
+  .anime-container:hover .play-icon {
+    /* color azul */
+    color: var(--oragenge);
+    opacity: 1;
+    cursor: pointer;
+  }
+
+  .anime-container:hover .cover-img {
+    filter: brightness(0.5);
+    cursor: pointer;
+    transform: scale(1.1);
   }
 }
 

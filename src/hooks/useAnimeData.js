@@ -18,7 +18,7 @@ export function useAnimeData() {
 
       if (
         isDataUpToDate(dataTimestamp) ||
-        getFromLocalStorage("dayliAnimes") !== "[]"
+        getFromLocalStorage("dayliAnimes") == "[]"
       ) {
         try {
           const { combinedAnimes, romance, sports } = await fetchData();
