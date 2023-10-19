@@ -1,7 +1,12 @@
 /* eslint-disable react/prop-types */
+import { useEffect, useState } from "react";
 import { getRandomNumber } from "../constants/getRandomNumber";
 export const AnimeEpisodeCard = ({ id, src, duration, title, episode }) => {
-  const random = getRandomNumber(1, 999);
+  const [random, setRandom] = useState(0);
+  useEffect(() => {
+    const random = getRandomNumber(1, 999);
+    setRandom(random);
+  }, []);
   return (
     <div className="episode-card watching" key={id}>
       <figure className="cover-container ripple">
