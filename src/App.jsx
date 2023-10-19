@@ -18,7 +18,6 @@ function App() {
         <Routes>
           <Route path="/search" element={<SearchPage />} />
           <Route path="/anime/:idAnime" element={<AnimePage />} />
-          <Route path="/anime" element={<PageNotFound />} />
           <Route path="/" element={<HomePage />} />
           <Route path="*" element={<PageNotFound />} />
         </Routes>

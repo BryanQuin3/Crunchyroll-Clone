@@ -1131,7 +1131,7 @@ main {
 .page-not-found {
   display: grid;
   place-items: center;
-  height: 100vh;
+  height: calc(100vh - 65px);
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   width: 75vw;
   margin: 0 auto;
@@ -1165,4 +1165,14 @@ main {
   color: #141519;
   padding: 10px 15px;
   font-size: 15px;
+}
+
+.info-not-found {
+  padding-bottom: 2rem;
+}
+
+@media (min-width: 769px) {
+  .info-not-found {
+    padding: 0;
+  }
 }
