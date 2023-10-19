@@ -1127,3 +1127,42 @@ main {
 .skleton-cover {
   margin-bottom: 15px;
 }
+
+.page-not-found {
+  display: grid;
+  place-items: center;
+  height: 100vh;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  width: 75vw;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+.page-not-found > div > .img-page-not-found {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  max-width: 75%;
+  margin: 0 auto;
+}
+
+.img-page-not-found {
+  height: auto;
+  width: 100%;
+}
+
+.info-not-found > h2 {
+  font-size: 2.5rem;
+  margin: 0;
+}
+
+.info-not-found > p {
+  font-size: 1.1rem;
+  margin-bottom: 40px;
+}
+
+.info-not-found > .btn-crunchy {
+  display: inline;
+  color: #141519;
+  padding: 10px 15px;
+  font-size: 15px;
+}

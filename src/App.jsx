@@ -6,6 +6,7 @@ import HomePage from "./components/HomePage";
 import { useState } from "react";
 import "./App.css";
 import AnimePage from "./components/AnimePage";
+import { PageNotFound } from "./components/PageNotFound";
 
 function App() {
   const [menuState, setMenuState] = useState("no-active");
@@ -17,8 +18,9 @@ function App() {
         <Routes>
           <Route path="/search" element={<SearchPage />} />
           <Route path="/anime/:idAnime" element={<AnimePage />} />
-          <Route path="/anime" element={<p>Page not found</p>} />
+          <Route path="/anime" element={<PageNotFound />} />
           <Route path="/" element={<HomePage />} />
+          <Route path="*" element={<PageNotFound />} />
         </Routes>
       </div>
     </Router>
