@@ -36,7 +36,7 @@ export async function fetchAnimeWatching(anime) {
   const fetchedTime = 24 - timeLeft;
   const response = await fetch(`https://api.jikan.moe/v4/anime/${id}/episodes`);
   const episodes = await response.json();
-  const fetchedEpisodeTitle = episodes.data[0]?.title;
+  const fetchedEpisodeTitle = episodes?.data[0]?.title;
 
   return { fetchedEpisodeTitle, fetchedTime, episodes };
 }

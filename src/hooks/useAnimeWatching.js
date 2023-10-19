@@ -14,12 +14,14 @@ export function useAnimeWatching() {
   useEffect(() => {
     const fetchData = async () => {
       let watchingAnimes = [];
-      if (getFromLocalStorage("watchingAnimes")) {
+      if (
+        getFromLocalStorage("watchingAnimes") &&
+        getFromLocalStorage("episodesData")
+      ) {
         watchingAnimes = getFromLocalStorage("watchingAnimes");
         setWatchingAnimes(watchingAnimes);
-        const { episodeTitles, episodeTimes } = await fetchEpisodesData(
-          watchingAnimes
-        );
+        const { episodeTitles, episodeTimes } =
+          getFromLocalStorage("episodesData");
         setEpisodesTitles(episodeTitles);
         setTimes(episodeTimes);
       } else {
@@ -38,6 +40,12 @@ export function useAnimeWatching() {
               );
               setEpisodesTitles(episodeTitles);
               setTimes(episodeTimes);
+              // guarda en local storage los datos de los episodios en un mismo objeto
+              const episodesData = {
+                episodeTitles,
+                episodeTimes,
+              };
+              saveToLocalStorage("episodesData", episodesData);
             }, 4000);
           }
         } catch (error) {
