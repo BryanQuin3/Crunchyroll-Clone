@@ -4,10 +4,12 @@ import { useEffect, useState, useCallback } from "react";
 export function useAnimeEpisodes(title) {
   const [animeEpisodes, setAnimeEpisodes] = useState([]);
   const [animeID, setAnimeID] = useState(null);
+  const [currentPage, setCurrentPage] = useState(1);
+  const prefix = "https://kitsu.io/api/edge/anime";
 
   const fetchAnimeID = useCallback(() => {
     if (title) {
-      const URL = `https://kitsu.io/api/edge/anime?filter[text]=${title}`;
+      const URL = `${prefix}?filter[text]=${title}`;
       getAnime(URL).then((response) => {
         setAnimeID(response.data[0].id);
       });
@@ -16,12 +18,18 @@ export function useAnimeEpisodes(title) {
 
   const fetchAnimeEpisodes = useCallback(() => {
     if (animeID) {
-      const URL = `https://kitsu.io/api/edge/anime/${animeID}/episodes`;
+      const URL = `${prefix}/${animeID}/episodes?page%5Blimit%5D=10&page%5Boffset%5D=${
+        (currentPage - 1) * 10
+      }`;
       getAnime(URL).then((response) => {
-        setAnimeEpisodes(response.data);
+        setAnimeEpisodes((prevEps) => [...prevEps, ...response.data]);
+        const newPageLink = response.links.next;
+        if (newPageLink) {
+          setCurrentPage((prevPage) => prevPage + 1);
+        }
       });
     }
-  }, [animeID]);
+  }, [animeID, currentPage]);
 
   useEffect(() => {
     fetchAnimeID();
