@@ -1,6 +1,6 @@
 # Crunchyroll Clone - React🍿
 
-Bienvenido al proyecto Crunchyroll Clone, donde estamos creando una versión clon de la popular plataforma de streaming de anime Crunchyroll utilizando datos de una API.
+Bienvenido al proyecto Crunchyroll Clone hecho con React, donde estamos creando una versión clon de la popular plataforma de streaming de anime Crunchyroll utilizando datos de una API.
 
 ## Descripción 📋
 
