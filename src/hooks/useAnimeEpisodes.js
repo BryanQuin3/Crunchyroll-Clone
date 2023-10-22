@@ -37,7 +37,7 @@ export function useAnimeEpisodes(title) {
 
   useEffect(() => {
     fetchAnimeEpisodes();
-    window.scrollTo(0, 0);
-  }, [fetchAnimeEpisodes]);
+    if (currentPage === 1) window.scrollTo(0, 0);
+  }, [fetchAnimeEpisodes, currentPage]);
   return { animeEpisodes };
 }
