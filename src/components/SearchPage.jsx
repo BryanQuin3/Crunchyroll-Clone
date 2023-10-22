@@ -30,7 +30,7 @@ export const SearchPage = () => {
   };
 
   return (
-    <main>
+    <main className="search-page-container">
       <div className="search-input-container" id="search-input">
         <input
           className="search-input"

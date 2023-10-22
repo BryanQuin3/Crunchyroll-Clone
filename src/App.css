@@ -30,6 +30,10 @@ header {
   justify-content: space-between;
   align-items: center;
   padding: 15px;
+  position: fixed;
+  top: 0;
+  z-index: 13;
+  width: -webkit-fill-available;
 }
 nav {
   margin: 0;
@@ -108,6 +112,10 @@ a:hover {
   justify-content: center;
   align-items: center;
   gap: 25px;
+}
+
+.search-page-container {
+  margin-top: 65px;
 }
 
 .search {
@@ -288,6 +296,7 @@ main {
   padding-top: 15px;
   background-color: var(--secondaryColor);
   overflow: hidden;
+  margin-top: 50px;
 }
 
 ::view-transition-old(root),
@@ -358,6 +367,7 @@ main {
   width: 100%; /* Asegura que las tarjetas ocupen todo el ancho del contenedor */
   scroll-snap-align: start; /* Alinea las tarjetas en el inicio del contenedor */
   flex: 0 0 auto;
+  margin-top: 65px;
 }
 
 .card-img-container {
