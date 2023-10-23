@@ -36,7 +36,7 @@ export const Header = ({ menuState, setMenuState }) => {
           {menuState === "active" && (
             <div className="menu-phone">
               <small>Explorar</small>
-              <ul className="main-list">
+              <ul className="main-list" onClick={handleClickMenu}>
                 <li>
                   <a aria-label="ver animes populares" href="#">
                     Popular
@@ -71,9 +71,9 @@ export const Header = ({ menuState, setMenuState }) => {
                   </a>
                 </li>
                 <li className="link-arrow-container">
-                  <a aria-label="ver animes por generos" href="./genres">
+                  <Link to="/genres" aria-label="ver animes por generos">
                     Generos
-                  </a>
+                  </Link>
                   <img className="arrow" src="../img/down-arrow.svg" alt="" />
                 </li>
               </ul>
@@ -122,7 +122,7 @@ export const Header = ({ menuState, setMenuState }) => {
         </nav>
       </section>
       <section className="search-container">
-        <Link to="/search" className="search" aria-label="buscar anime">
+        <Link to="./search" className="search" aria-label="buscar anime">
           <img src="../img/search.svg" alt="search-icon" />
         </Link>
         <div className="user">
