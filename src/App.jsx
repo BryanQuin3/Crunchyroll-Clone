@@ -7,6 +7,7 @@ import { useState } from "react";
 import "./App.css";
 import AnimePage from "./pages/AnimePage";
 import { PageNotFound } from "./pages/PageNotFound";
+import GenresPage from "./pages/GenresPage";
 
 function App() {
   const [menuState, setMenuState] = useState("no-active");
@@ -18,6 +19,7 @@ function App() {
         <Routes>
           <Route path="/search" element={<SearchPage />} />
           <Route path="/anime/:idAnime" element={<AnimePage />} />
+          <Route path="/genres" element={<GenresPage />} />
           <Route path="/" element={<HomePage />} />
           <Route path="*" element={<PageNotFound />} />
         </Routes>

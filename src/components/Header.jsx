@@ -71,7 +71,7 @@ export const Header = ({ menuState, setMenuState }) => {
                   </a>
                 </li>
                 <li className="link-arrow-container">
-                  <a aria-label="ver animes por generos" href="#">
+                  <a aria-label="ver animes por generos" href="./genres">
                     Generos
                   </a>
                   <img className="arrow" src="../img/down-arrow.svg" alt="" />
