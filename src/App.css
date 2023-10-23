@@ -1199,6 +1199,7 @@ main {
 
 .genres-pages-container > .cover-container {
   max-width: 180px;
+  max-height: 100px;
 }
 
 .genres-pages-container > .cover-container > figcaption {
@@ -1218,6 +1219,7 @@ main {
 .genres-pages-container > .cover-container > .img-cover {
   width: -webkit-fill-available;
   height: auto;
+  aspect-ratio: 16/9;
 }
 
 .genres-pages-container > .cover-container > .play-icon {
