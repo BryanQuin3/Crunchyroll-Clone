@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { AnimeCard } from "./AnimeCard";
+import { AnimeCard } from "../components/AnimeCard";
 import { capitalizeFirstLetter } from "../constants/capitalizeFirstLetter";
 import { saveToLocalStorage } from "../constants/localStorage";
 import { getAnime } from "../services/getAnime";

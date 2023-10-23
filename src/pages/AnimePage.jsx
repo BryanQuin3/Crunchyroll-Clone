@@ -1,9 +1,9 @@
-import { AnimeInfoBtns } from "./AnimeInfoBtns";
+import { AnimeInfoBtns } from "../components/AnimeInfoBtns";
 import { useAnimePageInfo } from "../hooks/useAnimePageInfo";
 import { useAnimeEpisodes } from "../hooks/useAnimeEpisodes";
-import { AnimeCover } from "./AnimeCover";
-import { AnimeInfo } from "./AnimeInfo";
-import { AnimeEpisodes } from "./AnimeEpisodes";
+import { AnimeCover } from "../components/AnimeCover";
+import { AnimeInfo } from "../components/AnimeInfo";
+import { AnimeEpisodes } from "../components/AnimeEpisodes";
 
 export const AnimePage = () => {
   const { title, images, rating, genres, synopsis, scored } =

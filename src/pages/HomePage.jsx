@@ -1,9 +1,9 @@
 /* eslint-disable react/prop-types */
-import { Banner } from "./Banner";
-import { Carousel } from "./Carousel";
-import { AnimeListSection } from "./AnimeListSection";
-import { WatchingAnimeList } from "./WatchingAnimeList";
-import { RecommendedAnimeCard } from "./RecommendedAnimeCard";
+import { Banner } from "../components/Banner";
+import { Carousel } from "../components/Carousel";
+import { AnimeListSection } from "../components/AnimeListSection";
+import { WatchingAnimeList } from "../components/WatchingAnimeList";
+import { RecommendedAnimeCard } from "../components/RecommendedAnimeCard";
 import { animeFeed } from "../constants/animeFeed";
 import { useAnimeData } from "../hooks/useAnimeData";
 import recommendedAnimes from "../mocks/recommended.json";
