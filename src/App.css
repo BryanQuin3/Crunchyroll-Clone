@@ -1191,9 +1191,8 @@ main {
 .genres-pages-container {
   display: grid;
   place-items: center;
-  grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
-  row-gap: 20px;
-  padding: 0 10px;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 10px;
   margin-top: 80px;
 }
 
@@ -1211,8 +1210,8 @@ main {
   width: 100%;
 }
 
-.genres-pages-container > .cover-container > .cover-img {
-  filter: brightness(0.1);
+.genres-pages-container > .cover-container > .img-cover {
+  max-width: 165px;
 }
 
 .genres-pages-container > .cover-container > .play-icon {
