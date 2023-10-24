@@ -507,6 +507,7 @@ main {
   display: flex;
   align-items: flex-start;
   gap: 15px;
+  max-width: 394px;
 }
 
 .anime-list {
