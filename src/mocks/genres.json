@@ -3,92 +3,92 @@
       {
         "id": 1,
         "name": "Action",
-        "src-cover": "./img/genreCovers/Action.webp",
-        "src-icon": "./img/genreIcons/action-icon.png"
+        "srcCover": "./img/genreCovers/Action.webp",
+        "srcIcon": "./img/genreIcons/action-icon.png"
       },
       {
         "id": 2,
         "name": "Adventure",
-        "src-cover": "./img/genreCovers/Adventure.webp",
-        "src-icon": "./img/genreIcons/adventure-icon.png"
+        "srcCover": "./img/genreCovers/Adventure.webp",
+        "srcIcon": "./img/genreIcons/adventure-icon.png"
       },
       {
         "id": 3,
         "name": "Comedy",
-        "src-cover": "./img/genreCovers/Comedy.webp",
-        "src-icon": "./img/genreIcons/comedy-icon.png"
+        "srcCover": "./img/genreCovers/Comedy.webp",
+        "srcIcon": "./img/genreIcons/comedy-icon.png"
       },
       {
         "id": 4,
         "name": "Drama",
-        "src-cover": "./img/genreCovers/Drama.webp",
-        "src-icon": "./img/genreIcons/drama-icon.png"
+        "srcCover": "./img/genreCovers/Drama.webp",
+        "srcIcon": "./img/genreIcons/drama-icon.png"
       },
       {
         "id": 5,
         "name": "Fantasy",
-        "src-cover": "./img/genreCovers/Fantasy.webp",
-        "src-icon": "./img/genreIcons/fantasy-icon.png"
+        "srcCover": "./img/genreCovers/Fantasy.webp",
+        "srcIcon": "./img/genreIcons/fantasy-icon.png"
       },
       {
         "id": 6,
         "name": "Music",
-        "src-cover": "./img/genreCovers/Music.webp",
-        "src-icon": "./img/genreIcons/music-icon.png"
+        "srcCover": "./img/genreCovers/Music.webp",
+        "srcIcon": "./img/genreIcons/music-icon.png"
       },
       {
         "id": 7,
         "name": "Romance",
-        "src-cover": "./img/genreCovers/Romance.webp",
-        "src-icon": "./img/genreIcons/romance-icon.png"
+        "srcCover": "./img/genreCovers/Romance.webp",
+        "srcIcon": "./img/genreIcons/romance-icon.png"
       },
       {
         "id": 8,
         "name": "Sci-Fi",
-        "src-cover": "./img/genreCovers/Sci-Fi.webp",
-        "src-icon": "./img/genreIcons/scifi-icon.png"
+        "srcCover": "./img/genreCovers/Sci-Fi.webp",
+        "srcIcon": "./img/genreIcons/scifi-icon.png"
       },
       {
         "id": 9,
         "name": "Seinen",
-        "src-cover": "./img/genreCovers/Seinen.webp",
-        "src-icon": "./img/genreIcons/seinen-icon.png"
+        "srcCover": "./img/genreCovers/Seinen.webp",
+        "srcIcon": "./img/genreIcons/seinen-icon.png"
       },
       {
         "id": 10,
         "name": "Shojo",
-        "src-cover": "./img/genreCovers/Shojo.webp",
-        "src-icon": "./img/genreIcons/shojo-icon.png"
+        "srcCover": "./img/genreCovers/Shojo.webp",
+        "srcIcon": "./img/genreIcons/shojo-icon.png"
       },
       {
         "id": 11,
         "name": "Shonen",
-        "src-cover": "./img/genreCovers/Shonen.webp",
-        "src-icon": "./img/genreIcons/shonen-icon.png"
+        "srcCover": "./img/genreCovers/Shonen.webp",
+        "srcIcon": "./img/genreIcons/shonen-icon.png"
       },
       {
         "id": 12,
         "name": "Slice of life",
-        "src-cover": "./img/genreCovers/SliceOfLife.webp",
-        "src-icon": "./img/genreIcons/sliceoflife-icon.png"
+        "srcCover": "./img/genreCovers/SliceOfLife.webp",
+        "srcIcon": "./img/genreIcons/sliceoflife-icon.png"
       },
       {
         "id": 13,
         "name": "Sports",
-        "src-cover": "./img/genreCovers/Sports.webp",
-        "src-icon": "./img/genreIcons/sports-icon.png"
+        "srcCover": "./img/genreCovers/Sports.webp",
+        "srcIcon": "./img/genreIcons/sports-icon.png"
       },
       {
         "id": 14,
         "name": "Supernatural",
-        "src-cover": "./img/genreCovers/Supernatural.webp",
-        "src-icon": "./img/genreIcons/supernatural-icon.png"
+        "srcCover": "./img/genreCovers/Supernatural.webp",
+        "srcIcon": "./img/genreIcons/supernatural-icon.png"
       },
       {
         "id": 15,
         "name": "Thriller",
-        "src-cover": "./img/genreCovers/Thriller.webp",
-        "src-icon": "./img/genreIcons/thriller-icon.png"
+        "srcCover": "./img/genreCovers/Thriller.webp",
+        "srcIcon": "./img/genreIcons/thriller-icon.png"
       }
     ]
   }
