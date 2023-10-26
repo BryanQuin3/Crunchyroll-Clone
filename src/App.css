@@ -1207,6 +1207,16 @@ main {
   max-height: 100px;
 }
 
+@media (min-width: 769px) {
+  .genres-pages-container {
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  }
+  .genres-pages-container > .cover-container {
+    max-width: 320px;
+    max-height: 180px;
+  }
+}
+
 .genres-pages-container > .cover-container > figcaption {
   position: absolute;
   top: 70%;
