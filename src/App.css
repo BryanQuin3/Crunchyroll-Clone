@@ -1249,5 +1249,5 @@ main {
   left: 0;
   height: 100%;
   z-index: 1;
-  background: linear-gradient(to top, rgb(38 40 46), rgba(0, 0, 0, 0));
+  background: linear-gradient(to top, rgb(35 37 43), rgba(0, 0, 0, 0));
 }
