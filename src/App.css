@@ -1106,6 +1106,7 @@ main {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  position: relative;
 }
 
 .episode-options > svg:hover {
@@ -1250,4 +1251,21 @@ main {
   height: 100%;
   z-index: 1;
   background: linear-gradient(to top, rgb(35 37 43), rgba(0, 0, 0, 0));
+}
+
+.dot-menu-options {
+  background-color: rgb(35 37 43);
+  position: absolute;
+  top: 90%;
+  width: -webkit-fill-available;
+  z-index: 1;
+  display: flex;
+  cursor: pointer;
+  flex-direction: column;
+  transition: all 0.3s ease-in-out;
+}
+
+.dot-menu-options > a {
+  font-size: 15px;
+  padding: 8px 12px;
 }
