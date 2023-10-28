@@ -1091,6 +1091,11 @@ main {
   min-width: 160px;
 }
 
+.episode-card:is(:last-child) .dot-menu-options {
+  bottom: 90%;
+  top: auto;
+}
+
 .episode-info {
   display: flex;
   align-items: center;
