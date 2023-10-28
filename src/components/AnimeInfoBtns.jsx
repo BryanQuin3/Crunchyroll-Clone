@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 export const AnimeInfoBtns = ({ text }) => {
   return (
     <footer className="carousel-btns">
-      <Link to="./" className="btn-crunchy ripple">
+      <Link to="" className="btn-crunchy ripple">
         <img className="card-play" src="../img/card-play.svg" alt="" />
         {text}
       </Link>

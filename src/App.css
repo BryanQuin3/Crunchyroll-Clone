@@ -1269,3 +1269,7 @@ main {
   font-size: 15px;
   padding: 8px 12px;
 }
+
+.viewed {
+  filter: brightness(0.5);
+}
