@@ -1,5 +1,6 @@
 export const animeFeed = [
   {
+    id: 49387,
     title: "Vinland Saga",
     imageSrc: "./img/vinland.webp",
     synopsis:
@@ -9,6 +10,7 @@ export const animeFeed = [
     button: "Continuar T2 E11",
   },
   {
+    id: 42192,
     title: "Edens Zero",
     imageSrc: "./img/edenszero.webp",
     synopsis:
@@ -18,6 +20,7 @@ export const animeFeed = [
     button: "Ver ahora",
   },
   {
+    id: 47917,
     title: "BOCCHI THE ROCK!",
     imageSrc: "./img/bocchi.webp",
     synopsis:

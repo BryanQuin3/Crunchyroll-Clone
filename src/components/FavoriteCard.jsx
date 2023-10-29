@@ -1,16 +1,17 @@
+/* eslint-disable react/prop-types */
 import { IconParkOutlineLike, MdiTrashCanOutline } from "./Icons";
-export const FavoriteCard = () => {
+export const FavoriteCard = ({ anime }) => {
+  const { title, imageSrc, button, genre } = anime;
   return (
     <li className="favorite-anime">
       <figure className="cover-container ripple">
-        <img src="./img/genreCovers/Action.webp" alt="" />
+        <img src={imageSrc} alt={title} />
       </figure>
-      <h4 className="favorite-anime-title">Shingeki No Kyojin</h4>
-      <small className="watching-title">Continuar: T1 E1</small>
+      <h4 className="favorite-anime-title">{title}</h4>
+      <small className="watching-title">{button}</small>
       <footer className="favorite-footer">
         <p className="anime-genre">
-          <span>Action | </span>
-          <span>Drama</span>
+          <span>{genre}</span>
         </p>
         <div className="favorite-options">
           <IconParkOutlineLike className="like-icon" />

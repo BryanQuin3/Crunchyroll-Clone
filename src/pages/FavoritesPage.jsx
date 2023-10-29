@@ -1,6 +1,9 @@
 import { BxMenuAltRight, FavoriteIcon } from "../components/Icons";
 import { FavoriteCard } from "../components/FavoriteCard";
+import { useContext } from "react";
+import { FavoritesContext } from "../components/context/favorites";
 export const FavoritesPage = () => {
+  const { favorites } = useContext(FavoritesContext);
   return (
     <main className="page-favorites">
       <header className="favorite-header container">
@@ -26,10 +29,9 @@ export const FavoritesPage = () => {
           <BxMenuAltRight className="menu-icon" />
         </nav>
         <ul className="favorites-anime-list">
-          <FavoriteCard />
-          <FavoriteCard />
-          <FavoriteCard />
-          <FavoriteCard />
+          {favorites.map((anime) => (
+            <FavoriteCard key={anime.id} anime={anime} />
+          ))}
         </ul>
       </section>
     </main>

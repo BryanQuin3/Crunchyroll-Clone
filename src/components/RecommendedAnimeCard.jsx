@@ -1,6 +1,12 @@
 /* eslint-disable react/prop-types */
+import { FavoritesContext } from "./context/favorites.jsx";
+import { useContext } from "react";
 export const RecommendedAnimeCard = ({ anime }) => {
   const { title, imageSrc, synopsis, button, genre, type } = anime;
+  const { toggleFavorite } = useContext(FavoritesContext);
+  const handleClick = () => {
+    toggleFavorite(anime);
+  };
   return (
     <article className="recommended-anime-container">
       <figure className="recommended-img-container ripple">
@@ -14,6 +20,7 @@ export const RecommendedAnimeCard = ({ anime }) => {
           </small>
           <svg
             className="watchlist-svg"
+            onClick={handleClick}
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 24 24"
             data-t="watchlist-svg"
@@ -34,7 +41,10 @@ export const RecommendedAnimeCard = ({ anime }) => {
             />
             {button}
           </button>
-          <button className="btn-crunchy btn-favorite ripple">
+          <button
+            className="btn-crunchy btn-favorite ripple"
+            onClick={handleClick}
+          >
             <img
               className="favorite"
               src="./img/list.svg"

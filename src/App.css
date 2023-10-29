@@ -1382,7 +1382,7 @@ main {
 
 .favorite-anime {
   max-width: -webkit-fill-available;
-  padding-bottom: 10px;
+  padding: 10px;
 }
 
 .favorite-anime:hover {
@@ -1448,4 +1448,8 @@ main {
     font-size: 2rem;
     font-weight: 500;
   }
+}
+
+.favorite-anime > .watching-title {
+  font-size: 14px;
 }
