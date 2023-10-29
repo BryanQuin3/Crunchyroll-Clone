@@ -1453,3 +1453,19 @@ main {
 .favorite-anime > .watching-title {
   font-size: 14px;
 }
+
+.favorite-alert {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 10%;
+  left: 50%;
+  /* color verde claro */
+  background-color: #2abd73;
+}
+
+.favorite-alert-text {
+  text-align: center;
+  color: var(--secondaryColor);
+}

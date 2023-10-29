@@ -1,6 +1,5 @@
 /* eslint-disable react/prop-types */
 import { createContext, useState, useEffect } from "react";
-
 // create context
 export const FavoritesContext = createContext();
 
