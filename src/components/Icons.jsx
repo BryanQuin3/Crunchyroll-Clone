@@ -22,6 +22,7 @@ export const DotsIcon = ({ onClick }) => {
     </svg>
   );
 };
+
 export const DownloadIcon = () => {
   return (
     <svg
@@ -44,6 +45,7 @@ export const DownloadIcon = () => {
     </svg>
   );
 };
+
 export const CommentsIcon = () => {
   return (
     <svg
@@ -67,4 +69,79 @@ export const CommentsIcon = () => {
   );
 };
 
-export default { DotsIcon, DownloadIcon, CommentsIcon };
+export const FavoriteIcon = (props) => {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 24 24"
+      data-t="watchlist-svg"
+      aria-hidden="true"
+      role="img"
+      {...props}
+    >
+      <title id="watchlist-svg">Favoritos</title>
+      <path d="M17 18.113l-3.256-2.326A2.989 2.989 0 0 0 12 15.228c-.629 0-1.232.194-1.744.559L7 18.113V4h10v14.113zM18 2H6a1 1 0 0 0-1 1v17.056c0 .209.065.412.187.581a.994.994 0 0 0 1.394.233l4.838-3.455a1 1 0 0 1 1.162 0l4.838 3.455A1 1 0 0 0 19 20.056V3a1 1 0 0 0-1-1z"></path>
+    </svg>
+  );
+};
+
+export const BxMenuAltRight = (props) => {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="2em"
+      height="2em"
+      viewBox="0 0 24 24"
+      fill="currentColor"
+      {...props}
+    >
+      <path d="M4 6h16v2H4zm4 5h12v2H8zm5 5h7v2h-7z" />
+    </svg>
+  );
+};
+
+export const IconParkOutlineLike = (props) => {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="1.5em"
+      height="1.5em"
+      viewBox="0 0 48 48"
+      fill="none"
+      {...props}
+    >
+      <path
+        stroke="currentColor"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        strokeWidth="4"
+        d="M15 8C8.925 8 4 12.925 4 19c0 11 13 21 20 23.326C31 40 44 30 44 19c0-6.075-4.925-11-11-11c-3.72 0-7.01 1.847-9 4.674A10.987 10.987 0 0 0 15 8Z"
+      />
+    </svg>
+  );
+};
+
+export const MdiTrashCanOutline = (props) => {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="1.5em"
+      height="1.5em"
+      viewBox="0 0 24 24"
+      fill="currentColor"
+      {...props}
+    >
+      <path d="M9 3v1H4v2h1v13a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V6h1V4h-5V3H9M7 6h10v13H7V6m2 2v9h2V8H9m4 0v9h2V8h-2Z" />
+    </svg>
+  );
+};
+
+export default {
+  DotsIcon,
+  DownloadIcon,
+  CommentsIcon,
+  FavoriteIcon,
+  BxMenuAltRight,
+  IconParkOutlineLike,
+  MdiTrashCanOutline,
+};

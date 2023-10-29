@@ -9,7 +9,7 @@ export const Header = ({ menuState, setMenuState }) => {
   };
   const { handleClick } = useViewTransition("./");
   return (
-    <header>
+    <header className="main-header">
       <section className="nav-container">
         <Link
           className="logo-container"
