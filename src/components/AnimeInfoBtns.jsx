@@ -1,7 +1,14 @@
 /* eslint-disable react/prop-types */
 import { Link } from "react-router-dom";
 import { FavoriteIcon } from "./Icons";
-export const AnimeInfoBtns = ({ text }) => {
+import { FavoritesContext } from "./context/favorites.jsx";
+import { useContext } from "react";
+
+export const AnimeInfoBtns = ({ text, anime }) => {
+  const { toggleFavorite } = useContext(FavoritesContext);
+  const handleClick = () => {
+    toggleFavorite(anime);
+  };
   return (
     <footer className="carousel-btns">
       <Link to="" className="btn-crunchy ripple">
@@ -9,7 +16,7 @@ export const AnimeInfoBtns = ({ text }) => {
         {text}
       </Link>
 
-      <FavoriteIcon className="watchlist-svg favorite" />
+      <FavoriteIcon className="watchlist-svg favorite" onClick={handleClick} />
     </footer>
   );
 };

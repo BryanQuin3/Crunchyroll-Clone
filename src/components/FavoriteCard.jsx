@@ -1,7 +1,13 @@
 /* eslint-disable react/prop-types */
 import { IconParkOutlineLike, MdiTrashCanOutline } from "./Icons";
+import { useContext } from "react";
+import { FavoritesContext } from "./context/favorites";
 export const FavoriteCard = ({ anime }) => {
   const { title, imageSrc, button, genre } = anime;
+  const { toggleFavorite } = useContext(FavoritesContext);
+  const handleClick = () => {
+    toggleFavorite(anime);
+  };
   return (
     <li className="favorite-anime">
       <figure className="cover-container ripple">
@@ -15,7 +21,7 @@ export const FavoriteCard = ({ anime }) => {
         </p>
         <div className="favorite-options">
           <IconParkOutlineLike className="like-icon" />
-          <MdiTrashCanOutline className="trash-icon" />
+          <MdiTrashCanOutline className="trash-icon" onClick={handleClick} />
         </div>
       </footer>
     </li>

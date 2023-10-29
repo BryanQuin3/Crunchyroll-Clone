@@ -6,8 +6,13 @@ import { AnimeInfo } from "../components/AnimeInfo";
 import { AnimeEpisodes } from "../components/AnimeEpisodes";
 
 export const AnimePage = () => {
-  const { title, images, rating, genres, synopsis, scored } =
+  const { title, images, rating, genres, synopsis, scored, idAnime } =
     useAnimePageInfo();
+  const button = "Comenzar a ver";
+  const genre = genres[0].name;
+  const imageSrc = images?.webp?.large_image_url || images;
+  const id = Number(idAnime);
+  const anime = { title, imageSrc, genre, button, id };
   const { animeEpisodes } = useAnimeEpisodes(title);
 
   return (
@@ -28,7 +33,7 @@ export const AnimePage = () => {
           images={images}
           title={title}
         />
-        <AnimeInfoBtns text="Comenzar a ver" />
+        <AnimeInfoBtns text={button} anime={anime} />
       </section>
     </div>
   );

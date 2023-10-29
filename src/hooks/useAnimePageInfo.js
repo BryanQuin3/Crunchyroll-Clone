@@ -13,5 +13,5 @@ export function useAnimePageInfo() {
   const { title, images, score, genres, synopsis, scored_by } = anime;
   const { rating, scored } = formatedRatingData(score, scored_by);
 
-  return { anime, title, images, rating, genres, synopsis, scored };
+  return { anime, title, images, rating, genres, synopsis, scored, idAnime };
 }

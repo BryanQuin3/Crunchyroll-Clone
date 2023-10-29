@@ -48,12 +48,9 @@ export const Header = ({ menuState, setMenuState }) => {
                   </a>
                 </li>
                 <li>
-                  <a
-                    aria-label="ver animes ordenados por orden alfabético"
-                    href="#"
-                  >
-                    Alfabético
-                  </a>
+                  <Link to="/favorites" aria-label="ver animes favoritos">
+                    Favoritos
+                  </Link>
                 </li>
                 <li>
                   <a aria-label="ver temporada de Simulcasts" href="#">
