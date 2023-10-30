@@ -17,6 +17,18 @@ export function FavoritesProvider({ children }) {
       setFavorites([...favorites, anime]);
     }
   };
+
+  const [isAscendingOrder, setIsAscendingOrder] = useState(true);
+
+  const sortAnimeByTitle = (favorites) => {
+    if (isAscendingOrder) {
+      setFavorites(favorites.sort((a, b) => a.title.localeCompare(b.title)));
+    } else {
+      setFavorites(favorites.sort((a, b) => b.title.localeCompare(a.title)));
+    }
+    setIsAscendingOrder(!isAscendingOrder);
+  };
+
   useEffect(() => {
     localStorage.setItem("favorites", JSON.stringify(favorites));
   }, [favorites]);
@@ -26,6 +38,7 @@ export function FavoritesProvider({ children }) {
       value={{
         favorites,
         toggleFavorite,
+        sortAnimeByTitle,
       }}
     >
       {children}

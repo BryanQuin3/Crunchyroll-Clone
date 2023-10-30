@@ -3,7 +3,10 @@ import { FavoriteCard } from "../components/FavoriteCard";
 import { useContext } from "react";
 import { FavoritesContext } from "../components/context/favorites";
 export const FavoritesPage = () => {
-  const { favorites } = useContext(FavoritesContext);
+  const { favorites, sortAnimeByTitle } = useContext(FavoritesContext);
+  const handleSort = () => {
+    sortAnimeByTitle(favorites);
+  };
   return (
     <main className="page-favorites">
       <header className="favorite-header container hidden">
@@ -26,7 +29,7 @@ export const FavoritesPage = () => {
       <section className="favorite-animes">
         <nav className="favorite-animes-info">
           <h3>Actividad reciente</h3>
-          <BxMenuAltRight className="menu-icon" />
+          <BxMenuAltRight className="menu-icon" onClick={handleSort} />
         </nav>
         <ul className="favorites-anime-list">
           {favorites.map((anime) => (
