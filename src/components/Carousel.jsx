@@ -10,6 +10,8 @@ export const Carousel = () => {
     carouselContainerRef,
     cardRefs,
   } = useCarousel(slides);
+  const { id, title, imageSrc, button, genre } = slides[currentSlide];
+  const anime = { id, title, imageSrc, button, genre };
 
   return (
     <section className="hero-carousel">
@@ -47,7 +49,7 @@ export const Carousel = () => {
               />
               <p className="anime-description">{slide.animeDescription}</p>
             </div>
-            <AnimeInfoBtns text={slide.btnText} />
+            <AnimeInfoBtns text={slide.button} anime={anime} />
           </div>
         ))}
       </div>

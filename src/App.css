@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css2?family=Lato:wght@400;700;900&display=swap");
 :root {
   --gray: #23252b;
   --oragenge: #f47521;
@@ -8,7 +9,7 @@
 }
 body {
   background-color: #000;
-  font-family: "Roboto", sans-serif;
+  font-family: "Lato", Helvetica Neue, helvetica, "Roboto", sans-serif;
   font-size: 16px;
   font-weight: 400;
   line-height: 1.5;
@@ -608,14 +609,7 @@ main {
   }
   .watching-title {
     font-size: 14px;
-    white-space: normal;
     text-align: left;
-    word-wrap: break-word;
-    width: auto;
-    max-width: 30ch;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
   }
   .watching-episode {
     font-size: 17px;
@@ -918,6 +912,17 @@ main {
   fill: #fff;
   cursor: pointer;
 }
+
+.favorite {
+  transition: all 0.3s ease-in-out;
+}
+
+.favorite:hover,
+.trash-icon:hover {
+  background-color: #000;
+  border-radius: 50%;
+}
+
 @media (min-width: 769px) {
   .recommended-anime-container {
     gap: 35px;
@@ -1342,7 +1347,7 @@ main {
     padding: 6px 24px;
   }
   .favorite-list-title {
-    font-size: 15px;
+    font-size: 14px;
   }
   .favorite-header {
     display: flex;
@@ -1440,10 +1445,21 @@ main {
   gap: 10px;
 }
 
+.trash-icon,
+.like-icon,
+.menu-icon {
+  padding: 5px;
+}
+
 .trash-icon:hover,
-.like-icon:hover,
 .menu-icon:hover {
   cursor: pointer;
+  fill: #ff8839;
+}
+
+.like-icon:hover {
+  cursor: pointer;
+  fill: #9e0d0d;
 }
 
 @media (min-width: 769px) {
@@ -1461,6 +1477,7 @@ main {
 
 .favorite-anime > .watching-title {
   font-size: 14px;
+  margin: 10px 0;
 }
 
 .favorite-alert {
