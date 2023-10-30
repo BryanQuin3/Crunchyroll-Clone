@@ -1495,3 +1495,22 @@ main {
   text-align: center;
   color: var(--secondaryColor);
 }
+
+.crunchylist-page {
+  display: grid;
+  place-items: center;
+  border: 1px dashed #dadada;
+  padding: 2rem;
+}
+
+.crunchylist-page > p {
+  color: #dadada;
+  text-align: center;
+  max-width: 30ch;
+}
+
+.crunchylist-page > .btn-crunchy {
+  padding: 12px 15px;
+  font-size: 14px;
+  color: #141519;
+}
