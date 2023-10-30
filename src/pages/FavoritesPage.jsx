@@ -6,7 +6,7 @@ export const FavoritesPage = () => {
   const { favorites } = useContext(FavoritesContext);
   return (
     <main className="page-favorites">
-      <header className="favorite-header container">
+      <header className="favorite-header container hidden">
         <FavoriteIcon className="favorite favorite-list-icon" />
         <h1 className="favorite-title">Mis Listas</h1>
       </header>

@@ -1279,12 +1279,6 @@ main {
   filter: brightness(0.5);
 }
 
-.favorite-header {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
 .page-favorites {
   width: 78vw;
   margin: 5rem auto 0 auto;
@@ -1332,14 +1326,29 @@ main {
 }
 
 .favorite-list {
-  padding: 6px 24px;
+  padding: 2px 6px;
   color: var(--tertiaryColor);
   transition: all 0.3s ease-in-out;
+  border-bottom: 4px solid transparent;
 }
 
 .favorite-list-title {
-  font-size: 15px;
+  font-size: 12px;
   text-transform: uppercase;
+}
+
+@media (min-width: 769px) {
+  .favorite-list {
+    padding: 6px 24px;
+  }
+  .favorite-list-title {
+    font-size: 15px;
+  }
+  .favorite-header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
 }
 
 .favorite-list:hover {
