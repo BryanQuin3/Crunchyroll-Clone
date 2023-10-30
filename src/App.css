@@ -1289,7 +1289,7 @@ main {
   margin: 5rem auto 0 auto;
 }
 
-.page-favorites > nav {
+.favorite-main-container > nav {
   position: relative;
 }
 
@@ -1319,7 +1319,7 @@ main {
   padding: 0;
 }
 
-.favorite-list-titles::before {
+.favorite-main-container > nav::before {
   content: "";
   position: absolute;
   bottom: 0;

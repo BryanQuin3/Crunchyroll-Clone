@@ -9,6 +9,8 @@ import AnimePage from "./pages/AnimePage";
 import { PageNotFound } from "./pages/PageNotFound";
 import GenresPage from "./pages/GenresPage";
 import { FavoritesPage } from "./pages/FavoritesPage";
+import { HistoryPage } from "./pages/HistoryPage";
+import { CrunchyListsPage } from "./pages/CrunchyListsPage";
 
 function App() {
   const [menuState, setMenuState] = useState("no-active");
@@ -22,6 +24,8 @@ function App() {
           <Route path="/anime/:idAnime" element={<AnimePage />} />
           <Route path="/genres" element={<GenresPage />} />
           <Route path="/favorites" element={<FavoritesPage />} />
+          <Route path="/crunchylists" element={<CrunchyListsPage />} />
+          <Route path="/history" element={<HistoryPage />} />
           <Route path="/" element={<HomePage />} />
           <Route path="*" element={<PageNotFound />} />
         </Routes>
