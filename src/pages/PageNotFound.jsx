@@ -1,5 +1,8 @@
 import { Link } from "react-router-dom";
+import { useViewTransition } from "../hooks/useViewTransition";
 export const PageNotFound = () => {
+  const { handleClick } = useViewTransition("/");
+
   return (
     <main className="page-not-found">
       <div>
@@ -12,7 +15,7 @@ export const PageNotFound = () => {
       <div className="info-not-found">
         <h2>404 - Página no encontrada</h2>
         <p>¡Yuzu dice que aquí no hay nada!</p>
-        <Link to="/" className="btn-crunchy">
+        <Link to="/" className="btn-crunchy" onClick={handleClick}>
           Llévame al inicio
         </Link>
       </div>
