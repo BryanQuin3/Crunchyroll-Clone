@@ -1291,6 +1291,7 @@ main {
 
 .favorite-main-container > nav {
   position: relative;
+  margin: 0 10px;
 }
 
 .favorite-title {
@@ -1377,6 +1378,7 @@ main {
   justify-content: space-between;
   align-items: center;
   width: 100%;
+  padding: 0 10px;
 }
 
 .favorite-animes-info > h3 {
@@ -1500,6 +1502,7 @@ main {
   place-items: center;
   border: 1px dashed #dadada;
   padding: 2rem;
+  margin: 0 10px;
 }
 
 .crunchylist-page > p {
@@ -1512,4 +1515,8 @@ main {
   padding: 12px 15px;
   font-size: 14px;
   color: #141519;
+}
+
+.history {
+  padding: 0 10px;
 }
