@@ -38,19 +38,19 @@ export const Header = ({ menuState, setMenuState }) => {
               <small>Explorar</small>
               <ul className="main-list" onClick={handleClickMenu}>
                 <li>
-                  <a aria-label="ver animes populares" href="#">
-                    Popular
-                  </a>
-                </li>
-                <li>
-                  <a aria-label="ver novedades de animes" href="#">
-                    Novedades
-                  </a>
-                </li>
-                <li>
                   <Link to="/favorites" aria-label="ver animes favoritos">
                     Favoritos
                   </Link>
+                </li>
+                <li>
+                  <Link to="/genres" aria-label="ver animes por generos">
+                    Generos
+                  </Link>
+                </li>
+                <li>
+                  <a aria-label="ver animes populares" href="#">
+                    Popular
+                  </a>
                 </li>
                 <li>
                   <a aria-label="ver temporada de Simulcasts" href="#">
@@ -68,10 +68,9 @@ export const Header = ({ menuState, setMenuState }) => {
                   </a>
                 </li>
                 <li className="link-arrow-container">
-                  <Link to="/genres" aria-label="ver animes por generos">
-                    Generos
-                  </Link>
-                  <img className="arrow" src="../img/down-arrow.svg" alt="" />
+                  <a aria-label="ver novedades de animes" href="#">
+                    Novedades
+                  </a>
                 </li>
               </ul>
               <ul>
