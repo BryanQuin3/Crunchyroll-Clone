@@ -1,9 +1,13 @@
 import { MyListsPage } from "./MyListsPage";
-
+import { EmptyContent } from "../components/EmptyContent";
 export const HistoryPage = () => {
   return (
     <MyListsPage history={true}>
-      <h1 className="history">Historial</h1>
+      <EmptyContent
+        srcImage="../img/empty-history.webp"
+        message="Todavía no has visto ningún anime. ¡Vamos a ver uno!"
+        buttonText="comenzar a explorar"
+      />
     </MyListsPage>
   );
 };

@@ -1527,6 +1527,7 @@ main {
   color: #dadada;
   text-align: center;
   max-width: 30ch;
+  margin-top: 0;
 }
 
 .crunchylist-page > .btn-crunchy {

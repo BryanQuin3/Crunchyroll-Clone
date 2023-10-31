@@ -1,13 +1,13 @@
 import { MyListsPage } from "./MyListsPage";
-
+import { EmptyContent } from "../components/EmptyContent";
 export const CrunchyListsPage = () => {
   return (
     <MyListsPage crunchylists={true}>
-      <div className="crunchylist-page">
-        <img src="../img/empty-cr-list.webp" alt="empty crunchylist image" />
-        <p>Todavía no tienes ninguna Crunchylista. ¡Vamos a crear una!</p>
-        <button className="btn-crunchy ripple">Crear una nueva lista</button>
-      </div>
+      <EmptyContent
+        srcImage="../img/empty-cr-list.webp"
+        message="Todavía no tienes ninguna Crunchylista. ¡Vamos a crear una!"
+        buttonText="Crear una nueva lista"
+      />
     </MyListsPage>
   );
 };
