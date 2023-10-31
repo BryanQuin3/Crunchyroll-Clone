@@ -16,13 +16,13 @@ export const AnimeInfoBtns = ({ text, anime }) => {
         {text}
       </Link>
       {isFavorite(anime) ? (
-        <FavoriteIcon
-          className="watchlist-svg favorite"
+        <FavoriteIconFilled
+          className="watchlist-svg favorite filled-orange"
           onClick={handleClick}
         />
       ) : (
-        <FavoriteIconFilled
-          className="watchlist-svg favorite filled-orange"
+        <FavoriteIcon
+          className="watchlist-svg favorite"
           onClick={handleClick}
         />
       )}
