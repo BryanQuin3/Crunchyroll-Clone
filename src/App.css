@@ -1511,6 +1511,7 @@ main {
 .crunchylist-page {
   display: grid;
   place-items: center;
+  justify-content: center;
   border: 1px dashed #dadada;
   padding: 2rem;
   margin: 0 10px;
