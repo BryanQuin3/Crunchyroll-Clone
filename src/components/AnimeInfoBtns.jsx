@@ -1,11 +1,11 @@
 /* eslint-disable react/prop-types */
 import { Link } from "react-router-dom";
-import { FavoriteIcon } from "./Icons";
+import { FavoriteIcon, FavoriteIconFilled } from "./Icons";
 import { FavoritesContext } from "./context/favorites.jsx";
 import { useContext } from "react";
 
 export const AnimeInfoBtns = ({ text, anime }) => {
-  const { toggleFavorite } = useContext(FavoritesContext);
+  const { toggleFavorite, isFavorite } = useContext(FavoritesContext);
   const handleClick = () => {
     toggleFavorite(anime);
   };
@@ -15,8 +15,17 @@ export const AnimeInfoBtns = ({ text, anime }) => {
         <img className="card-play" src="../img/card-play.svg" alt="" />
         {text}
       </Link>
-
-      <FavoriteIcon className="watchlist-svg favorite" onClick={handleClick} />
+      {isFavorite(anime) ? (
+        <FavoriteIcon
+          className="watchlist-svg favorite"
+          onClick={handleClick}
+        />
+      ) : (
+        <FavoriteIconFilled
+          className="watchlist-svg favorite filled-orange"
+          onClick={handleClick}
+        />
+      )}
     </footer>
   );
 };

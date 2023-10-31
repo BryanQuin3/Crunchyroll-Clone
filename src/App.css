@@ -884,9 +884,10 @@ main {
   color: var(--oragenge);
   display: flex;
   align-items: center;
-  padding: 0 10px 0 0;
+  padding: 3px 10px;
   gap: 0;
   display: none;
+  font-size: 15px;
 }
 
 .btn-favorite > .favorite {
@@ -913,11 +914,6 @@ main {
   cursor: pointer;
 }
 
-.favorite {
-  transition: all 0.3s ease-in-out;
-}
-
-.favorite:hover,
 .trash-icon:hover {
   background-color: #000;
   border-radius: 50%;
@@ -1503,6 +1499,13 @@ main {
   border: 1px dashed #dadada;
   padding: 2rem;
   margin: 0 10px;
+  height: 70vh;
+}
+
+@media (min-width: 769px) {
+  .crunchylist-page {
+    height: inherit;
+  }
 }
 
 .crunchylist-page > p {
@@ -1519,4 +1522,8 @@ main {
 
 .history {
   padding: 0 10px;
+}
+
+.filled-orange {
+  fill: var(--oragenge);
 }

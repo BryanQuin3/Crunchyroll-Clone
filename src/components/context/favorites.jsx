@@ -18,6 +18,10 @@ export function FavoritesProvider({ children }) {
     }
   };
 
+  const isFavorite = (anime) => {
+    return favorites.some((favorite) => favorite.id === anime.id);
+  };
+
   const [isAscendingOrder, setIsAscendingOrder] = useState(true);
 
   const sortAnimeByTitle = (favorites) => {
@@ -37,6 +41,7 @@ export function FavoritesProvider({ children }) {
     <FavoritesContext.Provider
       value={{
         favorites,
+        isFavorite,
         toggleFavorite,
         sortAnimeByTitle,
       }}
