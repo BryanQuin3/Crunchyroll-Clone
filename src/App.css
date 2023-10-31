@@ -1499,7 +1499,7 @@ main {
   border: 1px dashed #dadada;
   padding: 2rem;
   margin: 0 10px;
-  height: 70vh;
+  height: 60vh;
 }
 
 @media (min-width: 769px) {
