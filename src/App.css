@@ -1521,6 +1521,7 @@ main {
 @media (min-width: 769px) {
   .crunchylist-page {
     height: inherit;
+    padding: 0.8rem;
   }
 }
 
