@@ -24,6 +24,7 @@ export const AnimePage = () => {
           genres={genres}
           rating={rating}
           scored={scored}
+          anime={anime}
         />
         <div className="current-anime-synopsis">
           <p>{synopsis}</p>

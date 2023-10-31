@@ -1032,6 +1032,13 @@ main {
   background: linear-gradient(to top, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0));
 }
 
+.current-anime-info-details {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
 .current-anime-info {
   display: flex;
   justify-content: center;
@@ -1042,6 +1049,10 @@ main {
 .current-anime-info > .anime-list-title {
   font-weight: 500;
   margin-bottom: 0;
+}
+
+.current-anime-info-details > .watchlist-svg {
+  display: none;
 }
 
 @media (min-width: 769px) {
@@ -1067,6 +1078,10 @@ main {
   }
   .anime-page-body > .carousel-btns {
     display: none;
+  }
+  .current-anime-info-details > .watchlist-svg {
+    display: block;
+    width: 30px;
   }
 }
 
