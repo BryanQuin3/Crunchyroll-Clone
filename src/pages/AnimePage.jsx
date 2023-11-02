@@ -9,7 +9,7 @@ export const AnimePage = () => {
   const { title, images, rating, genres, synopsis, scored, idAnime } =
     useAnimePageInfo();
   const button = "Comenzar a ver";
-  const genre = genres[0].name;
+  const genre = genres[0]?.name || "Generic";
   const imageSrc = images?.webp?.large_image_url || images;
   const id = Number(idAnime);
   const anime = { title, imageSrc, genre, button, id };

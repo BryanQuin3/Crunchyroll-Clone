@@ -1,36 +1,40 @@
 // En App.jsx
 import { Header } from "./components/Header";
-import { SearchPage } from "./pages/SearchPage";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import HomePage from "./pages/HomePage";
 import { useState } from "react";
 import "./App.css";
-import AnimePage from "./pages/AnimePage";
-import { PageNotFound } from "./pages/PageNotFound";
-import GenresPage from "./pages/GenresPage";
-import { FavoritesPage } from "./pages/FavoritesPage";
-import { HistoryPage } from "./pages/HistoryPage";
-import { CrunchyListsPage } from "./pages/CrunchyListsPage";
+import { lazy, Suspense } from "react";
+
+const LazySearchPage = lazy(() => import("./pages/SearchPage"));
+const LazyHomePage = lazy(() => import("./pages/HomePage"));
+const LazyAnimePage = lazy(() => import("./pages/AnimePage"));
+const LazyPageNotFound = lazy(() => import("./pages/PageNotFound"));
+const LazyGenresPage = lazy(() => import("./pages/GenresPage"));
+const LazyFavoritesPage = lazy(() => import("./pages/FavoritesPage"));
+const LazyHistoryPage = lazy(() => import("./pages/HistoryPage"));
+const LazyCrunchyListsPage = lazy(() => import("./pages/CrunchyListsPage"));
 
 function App() {
   const [menuState, setMenuState] = useState("no-active");
 
   return (
-    <Router>
-      <Header menuState={menuState} setMenuState={setMenuState} />
-      <div className={menuState === "no-active" ? "" : "hidden"}>
-        <Routes>
-          <Route path="/search" element={<SearchPage />} />
-          <Route path="/anime/:idAnime" element={<AnimePage />} />
-          <Route path="/genres" element={<GenresPage />} />
-          <Route path="/favorites" element={<FavoritesPage />} />
-          <Route path="/crunchylists" element={<CrunchyListsPage />} />
-          <Route path="/history" element={<HistoryPage />} />
-          <Route path="/" element={<HomePage />} />
-          <Route path="*" element={<PageNotFound />} />
-        </Routes>
-      </div>
-    </Router>
+    <Suspense fallback={null}>
+      <Router>
+        <Header menuState={menuState} setMenuState={setMenuState} />
+        <div className={menuState === "no-active" ? "" : "hidden"}>
+          <Routes>
+            <Route path="/search" element={<LazySearchPage />} />
+            <Route path="/anime/:idAnime" element={<LazyAnimePage />} />
+            <Route path="/genres" element={<LazyGenresPage />} />
+            <Route path="/favorites" element={<LazyFavoritesPage />} />
+            <Route path="/crunchylists" element={<LazyCrunchyListsPage />} />
+            <Route path="/history" element={<LazyHistoryPage />} />
+            <Route path="/" element={<LazyHomePage />} />
+            <Route path="*" element={<LazyPageNotFound />} />
+          </Routes>
+        </div>
+      </Router>
+    </Suspense>
   );
 }
 
