@@ -9,15 +9,13 @@ Este proyecto tiene como objetivo replicar la experiencia de navegación y visua
 ## Funcionalidades principales 🚀
 
 - 📺 Búsqueda y exploración de anime por título, género y más.
-- ▶️ Reproducción de episodios de anime en línea.
-- 📝 Creación de listas de reproducción y seguimiento del progreso del anime.
+- 📝 Creación de listas de animes favoritos.
 - 🌟 Recomendaciones personalizadas de anime.
-- 💬 Comentarios y calificaciones de los usuarios.
+- 💬 Calificaciones de los usuarios.
 
 ## Tecnologías utilizadas 💻
 
 - React.js para la interfaz de usuario.
 - Consumo de una API de datos de anime.
 - Enrutamiento con react-router-dom.
-- Estilos con CSS y posiblemente algún preprocesador como SASS.
-- Posibilidad de implementar autenticación de usuarios (opcional).
+- Estilos con CSS.
